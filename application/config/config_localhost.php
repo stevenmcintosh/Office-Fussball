@@ -37,20 +37,21 @@ define('DB_BACKUP_PATH', APP . 'db_backups/');
  * Configuration for: Database
  * This is the place where you define your database credentials, database type etc.
  */
+
 define('DB_TYPE', 'mysql');
 define('DB_HOST', 'localhost');
 define('DB_NAME', 'officeplay');
 define('DB_USER', 'root');
 define('DB_PASS', 'root');
 define('DB_CHARSET', 'utf8');
-
-//define('DB_TYPE', 'mysql');
-//define('DB_HOST', 'dev.csr.pstars');
-//define('DB_NAME', 'fsbl');
-//define('DB_USER', 'fsbluser');
-//define('DB_PASS', 'f00sball1234');
-//define('DB_CHARSET', 'utf8');
-
+/*
+define('DB_TYPE', 'mysql');
+define('DB_HOST', 'xxxx');
+define('DB_NAME', 'xxxx');
+define('DB_USER', 'xxxx');
+define('DB_PASS', 'xxxx');
+define('DB_CHARSET', 'utf8');
+*/
 //define('LDAP_ON',false);
 //define('SESSION_TIMEOUT_IN_SECONDS', 360000); //1800 = 3 mins
 

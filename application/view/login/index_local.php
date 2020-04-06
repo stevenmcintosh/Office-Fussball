@@ -22,7 +22,7 @@
                     <p>Login with your windows username</p>
                     <div class="form-group">
                         <label for="ldapUsername">Username</label>
-                        <input type="text" class="form-control" id="ldapUsername" name="ldapUsername" placeholder="Enter ldap username" required>
+                        <input type="text" class="form-control" id="ldapUsername" name="ldapUsername" placeholder="Enter username" required>
                     </div>
                     <input type="hidden" name="password" value="noPasswordRequired">
                     <button type="submit" class="btn btn-default">Submit</button>
