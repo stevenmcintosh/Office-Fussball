@@ -1,7 +1,11 @@
 # fussball
-The office got a Fussball table, so I built a website for it. Leaderboards, seasons, Promotions, relegations, Active Directory integration etc. 
+The office got a Fussball table, so I built a website for it :)
 
-Was a lot of fun!
+Leaderboards, Seasons, Promotions, Relegations, Stats, the full she-bang. Even Active Directory integration!
+
+It was a lot of fun and is still going strong.
+
+Feel free to take a clone!
 
 ****************************************************************
 ***************************** Pages ****************************
@@ -40,7 +44,9 @@ Admin Pages
 
 On localhost, all warnings are shown.
 
-If you receive some warnings, it may be because of your settings or upgrages to MySQL.To rid these warnings, find yout my.cnf file and the [mysqld] group, then paste the line below
+If you receive some warnings, it may be because of your settings or some upgrages to MySQL.
+
+To rid these warnings, open my.cnf (probably in your conf dir) and find the [mysqld] group, then paste the line below:
 
 [mysqld]
 sql_mode="STRICT_TRANS_TABLES,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION"
