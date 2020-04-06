@@ -1,0 +1,47 @@
+.bodyContainer { margin-top:50px; padding-bottom: 70px; }
+.navbar-fixed-top { border-bottom:3px solid red;}
+.navbar-fixed-bottom { border-top:3px solid blue;}
+.navbar-inverse .navbar-brand { color:#fff;}
+.page-header { border-bottom: 1px solid red;}
+.feedbackRow { margin-top:20px; }
+.feedbackRow .alert { margin-bottom:0px; }
+.loginArea { width:640px; margin:0 auto}
+.seasonChampion p {line-height:100px;font-size:50px;}
+.trophyWinner {font-size:150%;}
+.fixtureTable td.gw { width:15%; text-align:center;}
+.fixtureTable td.home { color:blue; width:35%; text-align:right;}
+.fixtureTable td.away { color:red; width:35%; text-align:left;}
+.fixtureTable td.score { color:grey; text-align:center; width:15%;}
+
+.fixtureGrid {border-top:2px solid red;border-left:2px solid blue;}
+.fixtureGrid td.home, .fixtureGrid span.home {color:blue;}
+.fixtureGrid td.away, .fixtureGrid span.away {color:red;}
+.fixtureGrid .fixture_block { background:#ccc; }
+.sportsbookTable td.up {color:red;}
+.sportsbookTable td.down {color:green;}
+td.home, span.home {color:blue;}
+td.away, span.away {color:red;}
+.fixtureGrid td {text-align:center;}
+.header-button { margin-top:0px}
+.center {text-align:center;}
+th.rightBorder, td.rightBorder {border-right:2px solid black !important;}
+.userRow { background:#d9edf7 !important;}
+a {color:red}
+a:focus, a:hover {
+    color: blue;
+    text-decoration: underline;
+}
+a.email {color:blue;cursor: pointer}
+.team_promoted { background-color: #dff0d8 !important}
+.team_relegated { background-color: #f2dede !important}
+.team_champion_position { background-color: #ffe766 !important}
+.userRow { background:#d9edf7 !important;}
+
+.loginArea .wrapper {width:640px; height:632px; position:relative; background:url('../img/fusStarsHomeLogo.png') no-repeat}
+#loginAreaForm {position:absolute; bottom:112px; width:200px; color:white}
+
+.portfolio-item {
+    margin-bottom: 25px;
+}
+
+.gallery-img { width:360px; height:270px;}
