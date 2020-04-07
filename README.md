@@ -1,4 +1,4 @@
-![](public/img/screenshots/confirm%20result.png)
+![](/public/img/screenshots/confirm%20result.png)
 
 # fussball
 The office got a Fussball table, so I built a website for it :)
