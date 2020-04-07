@@ -1,4 +1,12 @@
-![](/public/img/screenshots/confirm_result.png)
+1. Intro
+2. Features
+3. Instructions
+4. MySql
+5. Screenshots
+
+****************************************************************
+*************************** 1. Intro **************************
+****************************************************************
 
 # fussball
 The office got a Fussball table, so I built a website for it :)
@@ -10,7 +18,7 @@ It was a lot of fun and is still going strong.
 Feel free to take a clone!
 
 ****************************************************************
-***************************** Pages ****************************
+************************* 2. Features **************************
 ****************************************************************
 
 Full working Fussball League website.
@@ -41,7 +49,7 @@ Admin Pages
 *Manual administrated pages via HTML.
 
 ****************************************************************
-************************ Instructions ************************
+*********************** 3. Instructions ************************
 ****************************************************************
 
 1. Clone the Repo
@@ -59,7 +67,7 @@ Admin Pages
 
 
 ****************************************************************
-************************ MySQL Warnings ************************
+*********************** 4. MySQL Warnings **********************
 ****************************************************************
 
 On localhost, all warnings are shown.
@@ -70,3 +78,29 @@ To rid these warnings, open my.cnf (probably in your conf dir) and find the [mys
 
 [mysqld]
 sql_mode="STRICT_TRANS_TABLES,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION"
+
+
+****************************************************************
+*********************** 5. Screenshots *************************
+****************************************************************
+
+![](/public/img/screenshots/league_tables.png)
+![](/public/img/screenshots/league_tables2.png)
+![](/public/img/screenshots/divisions.png)
+![](/public/img/screenshots/fixtures.png)
+![](/public/img/screenshots/my_results.png)
+![](/public/img/screenshots/my_results2.png)
+![](/public/img/screenshots/confirm_result.png)
+![](/public/img/screenshots/open_fixtures.png)
+![](/public/img/screenshots/season_create.png)
+![](/public/img/screenshots/season_end.png)
+![](/public/img/screenshots/singles_or_doubles.png)
+![](/public/img/screenshots/stats.png)
+![](/public/img/screenshots/stats2.png)
+![](/public/img/screenshots/season_preview.png)
+![](/public/img/screenshots/rules.png)
+![](/public/img/screenshots/admin_area.png)
+![](/public/img/screenshots/admin_config.png)
+![](/public/img/screenshots/gallery.png)
+![](/public/img/screenshots/hall_of_faame.png)
+![](/public/img/screenshots/help.png)
