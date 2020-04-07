@@ -8,7 +8,7 @@
 *************************** 1. Intro **************************
 ****************************************************************
 
-# fussball Website
+# Fussball Website (for the office)
 The office got a Fussball table, so I built a website for it :)
 
 Leaderboards, Seasons, Promotions, Relegations, Stats, the full sha-bang!
