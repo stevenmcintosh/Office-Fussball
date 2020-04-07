@@ -84,23 +84,60 @@ sql_mode="STRICT_TRANS_TABLES,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_
 *********************** 5. Screenshots *************************
 ****************************************************************
 
+League Tables
 ![](/public/img/screenshots/league_tables.png)
+
+League Tables 2
+
 ![](/public/img/screenshots/league_tables2.png)
+
+Divisions
 ![](/public/img/screenshots/divisions.png)
+
+Fixtures
 ![](/public/img/screenshots/fixtures.png)
-![](/public/img/screenshots/my_results.png)
+
+My Results
 ![](/public/img/screenshots/my_results2.png)
+
+Confirm result
 ![](/public/img/screenshots/confirm_result.png)
+
+Open Fixtures
 ![](/public/img/screenshots/open_fixtures.png)
+
+Create Seasons
 ![](/public/img/screenshots/season_create.png)
+
+End of Season
 ![](/public/img/screenshots/season_end.png)
+
+Set up Singles or Doubles Team
 ![](/public/img/screenshots/singles_or_doubles.png)
+
+Stats
 ![](/public/img/screenshots/stats.png)
+
+Stats 2
 ![](/public/img/screenshots/stats2.png)
+
+Season Preview
 ![](/public/img/screenshots/season_preview.png)
-![](/public/img/screenshots/rules.png)
+
+Admin Panel
 ![](/public/img/screenshots/admin_area.png)
+
+Admin Configs
 ![](/public/img/screenshots/admin_config.png)
+
+Rules
+![](/public/img/screenshots/rules.png)
+
+Gallery
 ![](/public/img/screenshots/gallery.png)
+
+Hall of Fame
 ![](/public/img/screenshots/hall_of_faame.png)
+
+Help
 ![](/public/img/screenshots/help.png)
