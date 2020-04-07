@@ -1,7 +1,7 @@
 # fussball
 The office got a Fussball table, so I built a website for it :)
 
-Leaderboards, Seasons, Promotions, Relegations, Stats, the full she-bang. Even Active Directory integration!
+Leaderboards, Seasons, Promotions, Relegations, Stats, the full sha-bang. Even Active Directory integration!
 
 It was a lot of fun and is still going strong.
 
@@ -37,6 +37,24 @@ Admin Pages
   - Scoring Systems (first to X goals)
 
 *Manual administrated pages via HTML.
+
+****************************************************************
+************************ Instructions ************************
+****************************************************************
+
+1. Clone the Repo
+2. Place the "application" and "public" folders into your web root
+3. Add the .htaccess file into your web root too.
+4. Run the MySQL file to install the database.
+5. Change the database config file with your localhost database details
+   a. "application/config/config_localhost.php"
+6. Open the webroot and you should see the homepage with a login (it's not connected to LDAP yet)
+   a. Username: adminusr
+   b. Email: test@test.com
+   c. Name: John Doe (Nickname) Johnny
+7. At the hommepage, log in with above user
+8. Go to admin and ......
+
 
 ****************************************************************
 ************************ MySQL Warnings ************************

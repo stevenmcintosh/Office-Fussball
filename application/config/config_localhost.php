@@ -40,7 +40,7 @@ define('DB_BACKUP_PATH', APP . 'db_backups/');
 
 define('DB_TYPE', 'mysql');
 define('DB_HOST', 'localhost');
-define('DB_NAME', 'officeplay');
+define('DB_NAME', 'fsbl');
 define('DB_USER', 'root');
 define('DB_PASS', 'root');
 define('DB_CHARSET', 'utf8');
@@ -52,7 +52,7 @@ define('DB_USER', 'xxxx');
 define('DB_PASS', 'xxxx');
 define('DB_CHARSET', 'utf8');
 */
-//define('LDAP_ON',false);
+define('LDAP_ON',false);
 //define('SESSION_TIMEOUT_IN_SECONDS', 360000); //1800 = 3 mins
 
 //define('HOME_PAGE_RECENT_RESULTS', 25);
