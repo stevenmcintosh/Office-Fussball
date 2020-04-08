@@ -11,6 +11,7 @@
         <h4>Champions</h4>
 
         <?php
+
         foreach ($league as $divName => $season) {
             ?>
 
@@ -60,12 +61,12 @@
                 </tr>*/ ?>
                 <tr>
                     <td>Most goals scored</td>
-                    <td><?php echo $allTimeTopScorer['0']->teamName . " (" . $allTimeTopScorer['0']->totalGoals . ")"; ?></td>
-                    <td><?php echo $allTimeTopScorerOfSingleSeason['0']->teamName . " (" . $allTimeTopScorerOfSingleSeason['0']->totalGoals . ") (season " . $allTimeTopScorerOfSingleSeason['0']->seasonName . ")"; ?></td>
+                    <td><?php echo $allTimeTopScorer['0']->teamName ? $allTimeTopScorer['0']->teamName . " (" . $allTimeTopScorer['0']->totalGoals . ")" : $allTimeTopScorer; ?></td>
+                    <td><?php echo $allTimeTopScorerOfSingleSeason['0']->teamName ? $allTimeTopScorerOfSingleSeason['0']->teamName . " (" . $allTimeTopScorerOfSingleSeason['0']->totalGoals . ") (season " . $allTimeTopScorerOfSingleSeason['0']->seasonName . ")" : $allTimeTopScorerOfSingleSeason; ?></td>
                 </tr>
                 <tr>
                     <td>Highest goals scored avg</td>
-                    <td><?php echo $allTimeTopAvgScorer['0']->teamName . " (" . $allTimeTopAvgScorer['0']->avgGoals . ")"; ?></td>
+                    <td><?php echo $allTimeTopAvgScorer['0']->teamName ? $allTimeTopAvgScorer['0']->teamName . " (" . $allTimeTopAvgScorer['0']->avgGoals . ")" : $allTimeTopAvgScorer; ?></td>
                     <td><?php echo $allTimeTopAvgScorerOfSingleSeason['0']->teamName . " (" . $allTimeTopAvgScorerOfSingleSeason['0']->avgGoals . ") (season " . $allTimeTopAvgScorerOfSingleSeason['0']->seasonName . ")"; ?></td>
                 </tr>
                 <tr>
