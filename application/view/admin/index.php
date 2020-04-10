@@ -19,16 +19,16 @@
                 <td><a href="<?php echo URL; ?>admin/cancelGame">Cancel a League Game</a></td>
             </tr>
             <tr>
-                <td><a href="<?php echo URL; ?>admin/emails">Email List</a></td>
-            </tr>
-            <tr>
-                <td><a href="<?php echo URL; ?>team/addTeam">Create Team</a></td>
-            </tr>
-            <tr>
                 <td><a href="<?php echo URL; ?>team">View Teams</a></td>
             </tr>
             <tr>
                 <td><a href="<?php echo URL; ?>admin/addSeason">Create Season</a></td>
+            </tr>
+            <tr>
+                <td><a href="<?php echo URL; ?>admin/viewUsers">View Users</a></td>
+            </tr>
+            <tr>
+                <td><a href="<?php echo URL; ?>team/addTeam">Create Team</a></td>
             </tr>
             <tr>
                 <td><a href="<?php echo URL; ?>admin/divisions">View Divisions</a></td>
@@ -38,6 +38,9 @@
             </tr>
             <tr>
                 <td><a href="<?php echo URL; ?>admin/removeSeason">Remove Season</a></td>
+            </tr>
+            <tr>
+                <td><a href="<?php echo URL; ?>admin/emails">Email List</a></td>
             </tr>
         </table>
     </div>

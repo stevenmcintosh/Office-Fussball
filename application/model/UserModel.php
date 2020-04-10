@@ -4,6 +4,7 @@ class UserModel {
 
     public $userId;
     public $ldapUsername;
+    public $email;
     public $firstName;
     public $lastName;
     public $nickname;
@@ -20,6 +21,84 @@ class UserModel {
         } catch (PDOException $e) {
             exit('Database connection could not be established.');
         }
+    }
+
+
+    public function load($id) {
+        if ($id != 0) {
+            $sql = "SELECT userId, ldapUsername, firstName, lastName, nickname, admin, email, dateLastLoggedIn FROM user WHERE userId = :id";
+            $query = $this->db->prepare($sql);
+            $query->execute(array(':id' => $id));
+            $user = $query->fetchAll();
+            $this->loadObjVarsFromSingle($user[0]);
+        } else {
+            $this->userId = 0;
+        }
+
+        return $this;
+    }
+
+    private function loadObjVarsFromSingle($user) {
+        foreach ($user as $var => $value) {
+            $var = lcfirst($var);
+            $this->$var = $value;
+        }
+    }
+
+    public function saveUsers() {
+        $returnVal = false;
+
+        if ($this->validate()) {
+            $sql = "UPDATE user SET 
+            ldapUsername = :ldapUsername, 
+            email = :email, 
+            firstName = :firstName,
+            lastName = :lastName,
+            nickName = :nickName,
+            admin = :admin 
+            WHERE userId = :userId";
+
+            $query = $this->db->prepare($sql);
+            $sql_array = array(
+                ':ldapUsername' => $this->ldapUsername, 
+                ':email' => $this->email, 
+                ':firstName' => $this->firstName, 
+                ':lastName' => $this->lastName,
+                ':nickName' => $this->nickname,
+                ':admin' => $this->admin,
+                ':userId' => $this->userId);
+                //exit($sql);
+            if($query->execute($sql_array)) {
+                $returnVal = true;
+            }
+        }
+        return $returnVal;
+    }
+
+
+    private function validate() {
+        $returnval = true;
+
+        if (empty($this->ldapUsername) or $this->ldapUsername == '') {
+            $this->errors['feedback']['username'] = 'The username name can not be empty';
+        }
+        if (empty($this->email) or $this->email == '') {
+            $this->errors['feedback']['email'] = 'The email can not be empty';
+        }
+        if (empty($this->firstName) or $this->firstName == '') {
+            $this->errors['feedback']['firstName'] = 'The first name short name can not be empty';
+        }
+        if (empty($this->lastName) or $this->lastName == '') {
+            $this->errors['feedback']['lastName'] = 'The last name can not be empty';
+        }
+        if (empty($this->nickname) or $this->nickname == '') {
+            $this->errors['feedback']['nickname'] = 'The nickname can not be empty';
+        }
+
+        if (count($this->errors) > 0) {
+            $returnval = false;
+        }
+        return $returnval;
     }
 
     /**
@@ -101,26 +180,6 @@ class UserModel {
         return $query->fetchAll();
     }
 
-    public function load($id) {
-        if ($id != 0) {
-            $sql = "SELECT userId, ldapUsername, firstName, lastName, nickname, admin, email, dateLastLoggedIn FROM user WHERE userId = :id";
-            $query = $this->db->prepare($sql);
-            $query->execute(array(':id' => $id));
-            $user = $query->fetchAll();
-            $this->loadObjVarsFromSingle($user[0]);
-        } else {
-            $this->id = 0;
-        }
-
-        return $this;
-    }
-
-    private function loadObjVarsFromSingle($user) {
-        foreach ($user as $var => $value) {
-            $var = lcfirst($var);
-            $this->$var = $value;
-        }
-    }
 
     public function is_admin() {
         if ($this->admin == 'y') {
@@ -200,5 +259,8 @@ class UserModel {
         header('location: ' . URL . 'login/');
         exit();
     }
+
+
+    
 
 }

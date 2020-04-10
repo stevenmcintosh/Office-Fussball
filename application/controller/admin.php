@@ -6,10 +6,6 @@ class Admin extends Controller {
         $this->activeNav = 'admin';
         parent::__construct();
 
-        if (!MENU_ADMIN) {
-//header('location: ' . URL . "error");
-        }
-
         UserAuth::adminProtectedPage();
     }
 
@@ -18,6 +14,74 @@ class Admin extends Controller {
         require APP . 'view/admin/index.php';
         require APP . 'view/_templates/footer.php';
     }
+
+    public function viewUsers() {
+        UserAuth::adminProtectedPage();
+        $userModel = new UserModel($this->db);
+       
+        $allUsers = $userModel->getAllActiveUsers();
+        require APP . 'view/_templates/header.php';
+        require APP . 'view/admin/users.php';
+        require APP . 'view/_templates/footer.php';
+
+    }
+
+    public function editUser($userId) {
+        UserAuth::adminProtectedPage();
+        $userModel = new UserModel($this->db);
+        $user = $userModel->load($userId);
+
+        if(!$user->userId) {
+            header('location: ' . URL . 'admin'); exit();
+        }
+
+        require APP . 'view/_templates/header.php';
+        require APP . 'view/user/editUser.php';
+        require APP . 'view/_templates/footer.php';
+    }
+
+    public function addUser() {
+        /* NOT YET CODED UP
+        UserAuth::adminProtectedPage();
+        $userModel = new UserModel($this->db);
+        $allUsers = $userModel->getAllActiveUsers();
+        require APP . 'view/_templates/header.php';
+        require APP . 'view/admin/addUser.php';
+        require APP . 'view/_templates/footer.php';*/
+    }
+
+
+
+    public function saveUser() {
+        $tmpUserId = $_POST['userId'];
+        $userModel = new userModel($this->db);
+        $userModel->load($tmpUserId);
+
+        if(!$userModel->userId) {
+            header('location: ' . URL . 'admin'); exit();
+        }
+
+        $userModel->nickname = $_POST['nickname'];
+        $userModel->email = $_POST['email'];
+        $userModel->firstName = $_POST['firstName'];
+        $userModel->lastName = $_POST['lastName'];
+        $userModel->ldapUsername = $_POST['ldapUsername'];
+
+        if($userModel->saveUsers()) {
+            $_SESSION['feedback_positive']['saved'] = "The user has been saved";
+            header('location: ' . URL . 'admin/viewUsers'); exit();
+        } else {
+            foreach($userModel->errors['feedback'] as $key => $feeback) {
+                $_SESSION['feedback_negative'][$key] = $feeback;
+            }
+        }
+
+        $allUsers = $userModel->getAllActiveUsers();
+        require APP . 'view/_templates/header.php';
+        require APP . 'view/_templates/feedback.php';
+        require APP . 'view/admin/users.php';
+        require APP . 'view/_templates/footer.php';
+    } 
 
     public function adminSettings() {
         $adminSettingsModel = new AdminSettingsModel($this->db);

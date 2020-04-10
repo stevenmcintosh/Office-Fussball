@@ -8,7 +8,6 @@
 <div class="row">
     <div class="col-md-12">
         <form method="post" action="<?php echo URL; ?>admin/saveDivision/<?php echo $division->divisionId; ?>">
-            <form>
                 <div class="form-group">
                     <label for="divisionName">Division Name</label>
                     <input type="text" class="form-control" name="divisionName" id="divisionName" value="<?php echo stripslashes(htmlspecialchars($division->divisionName)); ?>">
@@ -18,10 +17,6 @@
                     <input type="text" maxlength="3" class="form-control" name="divisionOrder" id="divisionOrder" value="<?php echo stripslashes(htmlspecialchars($division->divisionOrder)); ?>">
                 </div>
                 <button type="submit" class="btn btn-default">Save</button>
-            </form>
-
-
-           
         </form>
     </div>
 </div>

@@ -29,9 +29,7 @@ class divisions extends Controller {
         
 
         $divUsers = $leagueFixtureModel->getDivisionIdByTeamIdAndSeasonId(13,1);
-        echo "<pre>";
-        print_r($divUsers);
-        echo "</pre>";
+        
         
         
         require APP . 'view/_templates/header.php';
