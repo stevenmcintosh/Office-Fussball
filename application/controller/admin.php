@@ -30,9 +30,9 @@ class Admin extends Controller {
     public function editUser($userId) {
         UserAuth::adminProtectedPage();
         $userModel = new UserModel($this->db);
-        $user = $userModel->load($userId);
+        $userToEdit = $userModel->load($userId);
 
-        if(!$user->userId) {
+        if(!$userToEdit->userId) {
             header('location: ' . URL . 'admin'); exit();
         }
 
@@ -57,7 +57,7 @@ class Admin extends Controller {
         $tmpUser->firstName = stripslashes(htmlspecialchars($_POST['firstName']));
         $tmpUser->lastName = stripslashes(htmlspecialchars($_POST['lastName']));
         $tmpUser->ldapUsername = stripslashes(htmlspecialchars($_POST['ldapUsername']));
-        $tmpUser->admin = 'y';
+        $tmpUser->admin = stripslashes(htmlspecialchars($_POST['isAdmin']));
 
         if($tmpUser->saveUsers(true)) {
             $_SESSION['feedback_positive']['saved'] = "The user has been saved";
@@ -89,6 +89,8 @@ class Admin extends Controller {
         $userModel->firstName = $_POST['firstName'];
         $userModel->lastName = $_POST['lastName'];
         $userModel->ldapUsername = $_POST['ldapUsername'];
+        $userModel->admin = $_POST['isAdmin'];
+        
 
         if($userModel->saveUsers()) {
             $_SESSION['feedback_positive']['saved'] = "The user has been saved";

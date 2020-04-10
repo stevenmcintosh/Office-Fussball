@@ -44,9 +44,9 @@
                 <tr>    
                     <th>Is Admin?</th>
                     <td>
-                    <input type="radio" id="yes" name="isAdmin" value="yes" <?php if($user->admin === 'y') { echo "checked=\"checked\""; } ?>">
+                    <input type="radio" id="yes" name="isAdmin" value="y" <?php if($user->admin === 'y') { echo "checked=\"checked\""; } ?>">
                     <label for="yes">Yes</label><br>
-                    <input type="radio" id="no" name="isAdmin" value="no" <?php if($user->admin === 'n') { echo "checked=\"checked\""; } ?>">
+                    <input type="radio" id="no" name="isAdmin" value="n" <?php if($user->admin === 'n') { echo "checked=\"checked\""; } ?>">
                     <label for="no">No</label><br>
                     </td>
                 </tr>

@@ -21,6 +21,7 @@
                 <th>First Name</th>
                 <th>Last Name</th>
                 <th>Nickname</th>
+                <th>Admin</th>
                 <th>Action</th>
             </tr>
             </thead>
@@ -36,6 +37,7 @@
                 echo "<td>".$user->firstName."</td>";
                 echo "<td>".$user->lastName."</td>";
                 echo "<td>".$user->nickname."</td>";
+                echo "<td>".$user->admin."</td>";
                 echo "<td><a href=\"/admin/editUser/".stripslashes(htmlspecialchars($user->userId))."\">Edit</a></td>";
                 echo "</tr>";
             }?>

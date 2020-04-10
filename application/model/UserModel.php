@@ -129,6 +129,12 @@ class UserModel {
         if (empty($this->nickname) or $this->nickname == '') {
             $this->errors['feedback']['nickname'] = 'The nickname can not be empty';
         }
+        if (empty($this->admin) or $this->admin == '') {
+            $this->errors['feedback']['admin'] = 'The admin can not be empty';
+        }
+        if ($this->admin != 'y' and $this->admin != 'n') {
+            $this->errors['feedback']['admin'] = 'The admin must be a value or "Y" or "N"';
+        }
 
         if (count($this->errors) > 0) {
             $returnval = false;
