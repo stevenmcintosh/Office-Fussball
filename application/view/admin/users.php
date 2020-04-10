@@ -8,9 +8,9 @@
 </div>
 
 <div class="row">
-    <div class="col-md-6">
+    <div class="col-md-12">
         <h4>Users</h4>
-        <table class="table table-striped table-bordered">
+        <table class="table table-striped table-bordered table-condensed dataTable">
             <thead>
             <tr>
                 <th>#1</th>
