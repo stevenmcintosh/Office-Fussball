@@ -21,6 +21,7 @@ class Admin extends Controller {
        
         $allUsers = $userModel->getAllActiveUsers();
         require APP . 'view/_templates/header.php';
+        require APP . 'view/_templates/feedback.php';
         require APP . 'view/admin/users.php';
         require APP . 'view/_templates/footer.php';
 
@@ -41,19 +42,41 @@ class Admin extends Controller {
     }
 
     public function addUser() {
-        /* NOT YET CODED UP
         UserAuth::adminProtectedPage();
-        $userModel = new UserModel($this->db);
-        $allUsers = $userModel->getAllActiveUsers();
+        $tmpUser = new UserModel($this->db);
         require APP . 'view/_templates/header.php';
-        require APP . 'view/admin/addUser.php';
-        require APP . 'view/_templates/footer.php';*/
+        require APP . 'view/user/addUser.php';
+        require APP . 'view/_templates/footer.php';
+    }
+
+
+    public function insertUser() {
+        $tmpUser = new userModel($this->db);
+        $tmpUser->nickname = stripslashes(htmlspecialchars($_POST['nickname']));
+        $tmpUser->email = stripslashes(htmlspecialchars($_POST['email']));
+        $tmpUser->firstName = stripslashes(htmlspecialchars($_POST['firstName']));
+        $tmpUser->lastName = stripslashes(htmlspecialchars($_POST['lastName']));
+        $tmpUser->ldapUsername = stripslashes(htmlspecialchars($_POST['ldapUsername']));
+        $tmpUser->admin = 'y';
+
+        if($tmpUser->saveUsers(true)) {
+            $_SESSION['feedback_positive']['saved'] = "The user has been saved";
+            header('location: ' . URL . 'admin/viewUsers'); exit();
+        } else {
+            foreach($tmpUser->errors['feedback'] as $key => $feeback) {
+                $_SESSION['feedback_negative'][$key] = $feeback;
+            }
+        }
+        require APP . 'view/_templates/header.php';
+        require APP . 'view/_templates/feedback.php';
+        require APP . 'view/user/addUser.php';
+        require APP . 'view/_templates/footer.php';
     }
 
 
 
     public function saveUser() {
-        $tmpUserId = $_POST['userId'];
+        $tmpUserId = stripslashes(htmlspecialchars($_POST['userId']));
         $userModel = new userModel($this->db);
         $userModel->load($tmpUserId);
 

@@ -2,10 +2,12 @@
 <div class="row topRow">
     <div class="col-md-12">
         <div class="page-header">
+            <a href="addUser" class="btn btn-default pull-right">Add User</a>
             <h1>Users</h1>
         </div>
     </div>
 </div>
+
 
 <div class="row">
     <div class="col-md-12">

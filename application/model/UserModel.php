@@ -45,29 +45,64 @@ class UserModel {
         }
     }
 
-    public function saveUsers() {
+    public function saveUsers($newUser = false) {
         $returnVal = false;
 
         if ($this->validate()) {
-            $sql = "UPDATE user SET 
+           
+            $sql = "INSERT INTO user (
+            userId,
+            ldapUsername,
+            email,
+            firstName,
+            lastName,
+            nickName,
+            admin)
+            VALUES (
+            :userId,
+            :ldapUsername,
+            :email,
+            :firstName,
+            :lastName,
+            :nickName,
+            :admin
+            ) 
+            ON DUPLICATE KEY UPDATE
+            userId = :userId, 
             ldapUsername = :ldapUsername, 
             email = :email, 
             firstName = :firstName,
             lastName = :lastName,
             nickName = :nickName,
-            admin = :admin 
-            WHERE userId = :userId";
+            admin = :admin";
+           
+           
+            /* $sql = "UPDATE user SET 
+            ldapUsername = :ldapUsername, 
+            email = :email, 
+            firstName = :firstName,
+            lastName = :lastName,
+            nickName = :nickName,
+            admin = :admin"; 
+            
+            if(!$newUser) {
+                $sql .= " WHERE userId = :userId";
+            } */
 
             $query = $this->db->prepare($sql);
             $sql_array = array(
+                ':userId' => $this->userId, 
                 ':ldapUsername' => $this->ldapUsername, 
                 ':email' => $this->email, 
                 ':firstName' => $this->firstName, 
                 ':lastName' => $this->lastName,
                 ':nickName' => $this->nickname,
-                ':admin' => $this->admin,
-                ':userId' => $this->userId);
-                //exit($sql);
+                ':admin' => $this->admin);
+
+                /*if(!$newUser) {
+                   $sql_array[':userId'] = $this->userId;
+                }*/
+                //exit(print_r($query));
             if($query->execute($sql_array)) {
                 $returnVal = true;
             }
