@@ -39,18 +39,15 @@ class Team extends Controller
         $teamModel = new TeamModel($this->db);
         $teamModel->teamName = $_POST['teamName'];
 
-
-        print_r($_POST['teamMember']); exit();
-
-
         foreach($_POST['teamMember'] as $teamMember) {
 
             if(!empty($teamMember)) {
                 $userModel = new UserModel($this->db);
-                $teamModel->teamType = count($_POST['teamMember']);
                 $teamModel->teamMembers[] = $userModel->load($teamMember);
             }
         }
+
+        $teamModel->teamType = count($teamModel->teamMembers);
 
         if($teamModel->saveTeam()) {
             $_SESSION['feedback_positive']['saved'] = "The team has been saved";

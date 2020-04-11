@@ -29,7 +29,7 @@
                                     echo " selected='selected'";
                                 }
 
-                                echo '>'.$user->firstName.'</option>';
+                                echo '>'.$user->firstName. " (". $user->nickname . ")".'  </option>';
                             }
                             ?>
                         </select>
@@ -48,7 +48,7 @@
                                     echo " selected='selected'";
                                 }
 
-                                echo '>'.$user->firstName.'</option>';
+                                echo '>'.$user->firstName. " (". $user->nickname . ")".'  </option>';
                             }
                             ?>
                         </select>
