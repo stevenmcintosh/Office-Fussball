@@ -133,6 +133,30 @@ class LeagueFixtureModel extends FixturesModel {
         return $returnVal;
     }
 
+    public function hasOneFixtureBeenPlayed($seasonId = 0) {
+        $returnVal = true;
+
+        $sql = "SELECT leagueFixtureId 
+        FROM leagueFixture LF
+        WHERE homeScore > 0";
+
+        if($seasonId > 0) {
+            $sql .= " AND seasonId = :seasonId";
+            $sql_array = array(':seasonId' => $seasonId);
+        } 
+        $sql .= " LIMIT 1";
+        $query = $this->db->prepare($sql);
+        $query->execute($sql_array);
+        $res = $query->fetchAll();
+        if ($query->rowCount() > 0) {
+            $returnVal = true;
+        }
+
+
+        return $returnVal;
+
+    }
+
     public function isLastGameweekOfSeason($seasonId, $currentGameweek) {
         $returnVal = true;
         $sql = "SELECT MAX(LF.gameweek) as lastGameweek
@@ -162,10 +186,7 @@ class LeagueFixtureModel extends FixturesModel {
 
     public function moveTmpLeagueFixtureToLive() {
         $returnVal = false;
-        $sql = 
-        //"INSERT INTO leagueFixture SELECT * FROM leagueFixtureTmp";
-
-        "INSERT INTO leagueFixture 
+        $sql = "INSERT INTO leagueFixture 
         (seasonId, divisionId, fixtureId, gameweek, homeScore, awayScore, homeWinPts, awayWinPts, homeGrannyPts, awayGrannyPts, homeLosePts, awayLosePts)
     	SELECT seasonId, divisionId, fixtureId, gameweek, homeScore, awayScore, homeWinPts, awayWinPts, homeGrannyPts, awayGrannyPts, homeLosePts, awayLosePts
         FROM leagueFixtureTmp";

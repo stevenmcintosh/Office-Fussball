@@ -38,7 +38,7 @@
                     ?>
                 </tbody>
             </table>
-            <?php } ?>
+            <?php }  ?>
         </div>
 
         <div class="col-md-6">

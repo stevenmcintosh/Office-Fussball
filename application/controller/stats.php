@@ -106,11 +106,19 @@ class Stats extends Controller {
         if (!MENU_HALL_OF_FAME) {
             header('location: ' . URL . "error");
         }
-        $league = array();
-        $leagueFixturesModel = $this->loadModel('LeagueFixtureModel');
+        
         $seasonModel = $this->loadModel('SeasonModel');
+        if(!$seasonModel->doesSeasonExist()) {
+            header('location: ' . URL . "season/missing");   
+        }
+        $leagueFixturesModel = $this->loadModel('LeagueFixtureModel');
+        if(!$leagueFixturesModel->hasOneFixtureBeenPlayed()) {
+            header('location: ' . URL . "season/missing");   
+        }
 
-
+        $league = array();
+        
+    
         $this->activeNav = 'halloffame';
         $pastSeasons = $seasonModel->loadAllPastSeasons();
 
@@ -120,23 +128,20 @@ class Stats extends Controller {
             foreach ($allDivisions as $division) {
                 $seasonLeaders[$division['divisionName']] = $seasonModel->getSeasonLeaders($seasonId, $division['divisionId']);
                 $seasonRunnerUps[$division['divisionName']] = $seasonModel->getSeasonRunnerUps($seasonId, $division['divisionId']);
-                
                 $league[$division['divisionName']][$seasonId]['winner'] = $seasonLeaders[$division['divisionName']];
                 $league[$division['divisionName']][$seasonId]['runnerup'] = $seasonRunnerUps[$division['divisionName']];
             }
         }
         //$seasonModel = $this->loadModel('SeasonModel');
         
-        if($seasonModel->doesSeasonExist()) {
-            $statsModel = $this->loadModel('StatsModel');
+            $statsModel = $this->loadModel('StatsModel'); 
             $allTimeTopScorer = $statsModel->getAllTimeTopGoalScorers(1);
             $allTimeTopAvgScorer = $statsModel->getAllTimeTopAvgGoalScorers(1);
+            $allTimeTopScorerOfSingleSeason = $statsModel->getAllTimeTopGoalScorersOfASeason(1);
             $allTimeTopAvgScorerOfSingleSeason = $statsModel->getAllTimeTopAvgGoalScorersOfASeason(1);
             $allTimeBestGoalDifference = $statsModel->getAllTimeBestGoalDifference(1);
             $allTimeBestGoalDifferenceSingleSeason = $statsModel->getAllTimeBestGoalDifferenceOfASeason(1);
-        } else {
-            header('location: ' . URL . "season/missing");    
-        }
+        
        
         require APP . 'view/_templates/header.php';
         require APP . 'view/stats/hall-of-fame.php';
