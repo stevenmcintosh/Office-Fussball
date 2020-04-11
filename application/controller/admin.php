@@ -263,12 +263,11 @@ class Admin extends Controller {
 
     public function addSeasonPreview() {
 
-
-//print_r($_POST);
         $seasonModel = $this->loadModel('SeasonModel');
         $leagueFixtureModel = $this->loadModel('LeagueFixtureModel');
 
         if (isset($_POST['teams']) && !$seasonModel->validatePreSeason($_POST['teams'])) {
+
             foreach ($seasonModel->errors['feedback'] as $key => $feeback) {
                 $_SESSION['feedback_negative'][$key] = $feeback;
             }
@@ -286,6 +285,8 @@ class Admin extends Controller {
         }
 
 
+
+
         $divisionModel = $this->loadModel('DivisionModel');
         $allDivisions = $divisionModel->loadAllDivisions();
         foreach ($allDivisions as $division) {
@@ -299,6 +300,7 @@ class Admin extends Controller {
     
         }
 
+
         foreach ($setUpDivisions as $div => $teamObj) {
             $teams = array();
             foreach ($teamObj as $teamId => $teamObj) {
@@ -311,7 +313,6 @@ class Admin extends Controller {
         }
 
         $tmpFixtures = $leagueFixtureModel->getTmpFixtures();
-
         require APP . 'view/_templates/header.php';
         require APP . 'view/_templates/feedback.php';
         require APP . 'view/admin/addSeasonPreview.php';

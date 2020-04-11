@@ -162,8 +162,14 @@ class LeagueFixtureModel extends FixturesModel {
 
     public function moveTmpLeagueFixtureToLive() {
         $returnVal = false;
-        $sql = "INSERT INTO leagueFixture
-        SELECT * FROM leagueFixtureTmp";
+        $sql = 
+        //"INSERT INTO leagueFixture SELECT * FROM leagueFixtureTmp";
+
+        "INSERT INTO leagueFixture 
+        (seasonId, divisionId, fixtureId, gameweek, homeScore, awayScore, homeWinPts, awayWinPts, homeGrannyPts, awayGrannyPts, homeLosePts, awayLosePts)
+    	SELECT seasonId, divisionId, fixtureId, gameweek, homeScore, awayScore, homeWinPts, awayWinPts, homeGrannyPts, awayGrannyPts, homeLosePts, awayLosePts
+        FROM leagueFixtureTmp";
+
         $query = $this->db->prepare($sql);
         if ($query->execute()) {
             $returnVal = true;
@@ -367,9 +373,14 @@ class LeagueFixtureModel extends FixturesModel {
     }
 
     public function moveAllTmpToLive() {
+
+         
         $this->makeTmpFixtureIdsSafe();
+        
         $this->moveTmpFixturesToLive();
+        
         $this->moveTmpLeagueFixtureToLive();
+     //   exit();
     }
 
     public function createLeagueFixtures($season_id, $teams, $divisionId) {

@@ -144,6 +144,8 @@ class SeasonModel {
         $leagueFixtureModel->moveAllTmpToLive();
 
 
+
+
         $query = $this->db->prepare($sql);
         if ($query->execute()) {
             $leagueFixtureModel->removeTmpFixtures();
