@@ -8,7 +8,8 @@
 
 <div class="row">
     <div class="col-md-12">
-    Its crazy I know, but how can we show you data when there are no seasons to show? I think you should ask an admin to create the first season.
-</div>
+        <p>
+        Its crazy I know, but how can we show you data when there are no seasons to show? 
+        </p>
     </div>
-
+</div>

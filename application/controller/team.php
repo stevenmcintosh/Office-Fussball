@@ -11,7 +11,7 @@ class Team extends Controller
             //header('location: ' . URL . "error");
         }
 
-        UserAuth::adminProtectedPage();
+        //UserAuth::adminProtectedPage();
     }
 
     public function index()
@@ -38,6 +38,10 @@ class Team extends Controller
 
         $teamModel = new TeamModel($this->db);
         $teamModel->teamName = $_POST['teamName'];
+
+
+        print_r($_POST['teamMember']); exit();
+
 
         foreach($_POST['teamMember'] as $teamMember) {
 

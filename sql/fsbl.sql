@@ -199,7 +199,7 @@ CREATE TABLE `team` (
 --
 
 INSERT INTO `team` (`teamId`, `teamName`, `teamType`) VALUES
-(1, 'Flash', 2);
+(1, 'Johnny United', 1);
 
 -- --------------------------------------------------------
 
