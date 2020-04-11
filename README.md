@@ -9,6 +9,7 @@
 ****************************************************************
 
 # Fussball Website (for the office)
+
 The office got a Fussball table, so I built a website for it :)
 
 Leaderboards, Seasons, Promotions, Relegations, Stats, the full sha-bang!
@@ -16,6 +17,8 @@ Leaderboards, Seasons, Promotions, Relegations, Stats, the full sha-bang!
 It was a lot of fun and is still going strong. Feel free to take a clone!
 
 Note: This is ideal for offices that have fusball tables that use Active Directory.
+
+Disclaimer. The website was built in a few evenings over 2 weeks. It's not perfect!
 
 ****************************************************************
 ************************* 2. Features **************************
@@ -52,18 +55,23 @@ Admin Pages
 *********************** 3. Instructions ************************
 ****************************************************************
 
+Tested with:
+PHP Version 7.3.9
+MySQL Server version: 5.7.26
+
 1. Clone the Repo
 2. Place the "application" and "public" folders into your web root
 3. Add the .htaccess file into your web root too.
-4. Run the MySQL file to install the database.
+4. Run the MySQL file to install the database (/sql/fussball.sql)
 5. Change the database config file with your localhost database details
    *  "application/config/config_localhost.php"
 6. Open the webroot and you should see the homepage with a login (it's not connected to LDAP yet)
    *  Username: adminusr
    *  Email: test@test.com
-   *  Name: John Doe (Nickname) Johnny
-7. At the hommepage, log in with above user
-8. Go to admin and ......
+   *  Name: John Doe 
+   *  Nickname: Johnny
+7. At the homepage, log in with above user
+8. Go to admin and create more users, then create teams, then create new season
 
 
 ****************************************************************
