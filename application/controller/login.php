@@ -13,7 +13,7 @@ class Login extends Controller
     		$userModel->ldapUsername = $_POST['ldapUsername'];
     		$userModel->password = $_POST['password'];
     		
-    		if($userModel->login_user(LDAP_ACTIVE)) {
+    		if($userModel->login_user('LDAP_ACTIVE')) {
         		Session::set('user_logged_in', 'true');
     			header('location: ' . URL);
         		exit();	

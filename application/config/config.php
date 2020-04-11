@@ -54,7 +54,7 @@ define('DB_USER', 'xxxx');
 define('DB_PASS', 'xxxx');
 define('DB_CHARSET', 'utf8');
 
-define('LDAP_ON',false);
+define('LDAP_ACTIVE',false);
 define('SESSION_TIMEOUT_IN_SECONDS', 360000); //1800 = 3 mins
 
 define('HOME_PAGE_RECENT_RESULTS', 25);

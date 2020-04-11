@@ -9,7 +9,7 @@
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
-
+SET GLOBAL sql_mode = "";
 --
 -- Database: `fsbl`
 --
@@ -199,7 +199,9 @@ CREATE TABLE `team` (
 --
 
 INSERT INTO `team` (`teamId`, `teamName`, `teamType`) VALUES
-(1, 'Johnny United', 1);
+(1, 'Johnny United', 1),
+(2, 'Flasher United', 2),
+(3, 'Spiller United', 3);
 
 -- --------------------------------------------------------
 
@@ -237,7 +239,9 @@ CREATE TABLE `teamUser` (
 --
 
 INSERT INTO `teamUser` (`teamUserId`, `teamId`, `userId`) VALUES
-(1, 1, 1);
+(1, 1, 1),
+(2, 2, 2),
+(3, 3, 3);
 
 -- --------------------------------------------------------
 
@@ -263,7 +267,9 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`userId`, `ldapUsername`, `email`, `firstName`, `lastName`, `nickname`, `admin`, `committee`, `dateLastLoggedIn`, `waitingToJoin`) VALUES
-(1, 'adminusr', 'test@test.com', 'John', 'doe', 'Johnny', 'y', 'y', '2016-07-26 23:38:11', 0);
+(1, 'adminusr', 'test1@test.com', 'John', 'doe', 'Johnny', 'y', 'y', '2016-07-26 23:38:11', 0),
+(2, 'mcintste', 'test2@test.com', 'Steve', 'McIntosh', 'Flashman', 'y', 'y', '2016-07-26 23:38:11', 0),
+(3, 'steffyj', 'test3@test.com', 'Steph', 'McIntosh', 'Spiller', 'y', 'y', '2016-07-26 23:38:11', 0);
 
 --
 -- Indexes for dumped tables
@@ -272,76 +278,62 @@ INSERT INTO `user` (`userId`, `ldapUsername`, `email`, `firstName`, `lastName`, 
 --
 -- Indexes for table `competitionType`
 --
-ALTER TABLE `competitionType`
-  ADD PRIMARY KEY (`competitionId`);
+ALTER TABLE `competitionType` ADD PRIMARY KEY (`competitionId`);
 
 --
 -- Indexes for table `division`
 --
-ALTER TABLE `division`
-  ADD PRIMARY KEY (`divisionId`);
+ALTER TABLE `division` ADD PRIMARY KEY (`divisionId`);
 
 --
 -- Indexes for table `fixture`
 --
-ALTER TABLE `fixture`
-  ADD PRIMARY KEY (`fixtureId`);
-  ALTER TABLE `fsbl`.`fixture` FORCE
+ALTER TABLE `fixture` ADD PRIMARY KEY (`fixtureId`);
+-- ALTER TABLE `fixture` FORCE
 --
 -- Indexes for table `fixtureTmp`
 --
-ALTER TABLE `fixtureTmp`
-  ADD PRIMARY KEY (`fixtureId`);
+ALTER TABLE `fixtureTmp` ADD PRIMARY KEY (`fixtureId`);
 
 --
 -- Indexes for table `leagueFixture`
 --
-ALTER TABLE `leagueFixture`
-  ADD PRIMARY KEY (`leagueFixtureId`);
+ALTER TABLE `leagueFixture` ADD PRIMARY KEY (`leagueFixtureId`);
 
 --
 -- Indexes for table `leagueFixtureTmp`
 --
-ALTER TABLE `leagueFixtureTmp`
-  ADD PRIMARY KEY (`leagueFixtureId`);
+ALTER TABLE `leagueFixtureTmp` ADD PRIMARY KEY (`leagueFixtureId`);
 
 --
 -- Indexes for table `season`
 --
-ALTER TABLE `season`
-  ADD PRIMARY KEY (`seasonId`);
+ALTER TABLE `season` ADD PRIMARY KEY (`seasonId`);
 
 --
 -- Indexes for table `status`
 --
-ALTER TABLE `status`
-  ADD PRIMARY KEY (`statusId`);
+ALTER TABLE `status` ADD PRIMARY KEY (`statusId`);
 
 --
 -- Indexes for table `team`
 --
-ALTER TABLE `team`
-  ADD PRIMARY KEY (`teamId`),
-  ADD UNIQUE KEY `unique_teamName` (`teamName`);
+ALTER TABLE `team` ADD PRIMARY KEY (`teamId`), ADD UNIQUE KEY `unique_teamName` (`teamName`);
 
 --
 -- Indexes for table `teamType`
 --
-ALTER TABLE `teamType`
-  ADD PRIMARY KEY (`teamTypeId`);
+ALTER TABLE `teamType` ADD PRIMARY KEY (`teamTypeId`);
 
 --
 -- Indexes for table `teamUser`
 --
-ALTER TABLE `teamUser`
-  ADD PRIMARY KEY (`teamUserId`),
-  ADD UNIQUE KEY `teamId` (`teamId`,`userId`);
+ALTER TABLE `teamUser` ADD PRIMARY KEY (`teamUserId`), ADD UNIQUE KEY `teamId` (`teamId`,`userId`);
 
 --
 -- Indexes for table `user`
 --
-ALTER TABLE `user`
-  ADD PRIMARY KEY (`userId`);
+ALTER TABLE `user` ADD PRIMARY KEY (`userId`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -363,7 +355,7 @@ ALTER TABLE `division`
 -- AUTO_INCREMENT for table `fixture`
 --
 ALTER TABLE `fixture`
-  MODIFY `fixtureId` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3315;
+  MODIFY `fixtureId` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=0;
 
 --
 -- AUTO_INCREMENT for table `fixtureTmp`
@@ -375,7 +367,7 @@ ALTER TABLE `fixtureTmp`
 -- AUTO_INCREMENT for table `leagueFixture`
 --
 ALTER TABLE `leagueFixture`
-  MODIFY `leagueFixtureId` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3315;
+  MODIFY `leagueFixtureId` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=0;
 
 --
 -- AUTO_INCREMENT for table `leagueFixtureTmp`
