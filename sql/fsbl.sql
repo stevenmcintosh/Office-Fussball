@@ -268,8 +268,8 @@ CREATE TABLE `user` (
 
 INSERT INTO `user` (`userId`, `ldapUsername`, `email`, `firstName`, `lastName`, `nickname`, `admin`, `committee`, `dateLastLoggedIn`, `waitingToJoin`) VALUES
 (1, 'adminusr', 'test1@test.com', 'John', 'doe', 'Johnny', 'y', 'y', '2016-07-26 23:38:11', 0),
-(2, 'mcintste', 'test2@test.com', 'Steve', 'McIntosh', 'Flashman', 'y', 'y', '2016-07-26 23:38:11', 0),
-(3, 'steffyj', 'test3@test.com', 'Steph', 'McIntosh', 'Spiller', 'y', 'y', '2016-07-26 23:38:11', 0);
+(2, 'shortedd', 'test2@test.com', 'Eddie', 'Short', 'Shortie', 'y', 'y', '2016-07-26 23:38:11', 0),
+(3, 'spillman', 'test3@test.com', 'Steph', 'Spillman', 'Spiller', 'y', 'y', '2016-07-26 23:38:11', 0);
 
 --
 -- Indexes for dumped tables
