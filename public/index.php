@@ -47,5 +47,9 @@ require APP . 'core/application.php';
 require APP . 'core/controller.php';
 //require APP . 'config/admin_settings.php';
 
+
+/* Load Composer and all dependancies */
+require ROOT . 'vendor/autoload.php';
+
 // start the application
 $app = new Application();

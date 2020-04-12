@@ -1,0 +1,15 @@
+{
+    "name": "teamsas/fussball.beta",
+    "description": "Composer for Office Fussball to load 3rd party libs",
+    "type": "project",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Steven McIntosh",
+            "email": "ste.mcintosh@gmail.com"
+        }
+    ],
+    "require": {
+        "swiftmailer/swiftmailer": "^5.4"
+    }
+}
