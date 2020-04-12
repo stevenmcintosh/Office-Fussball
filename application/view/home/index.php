@@ -11,9 +11,9 @@
         
         <?php if(HOME_PAGE_RECENT_RESULTS_ACTIVE) { ?>
         <div class="page-header">
-            <h1>Season 5 ends 1st August</h1>
+            <h1>Latest Results</h1>
         </div>
-        <h4>Latest Results</h4>
+        <h4>Newset Results on Top</h4>
         <table class="table table-striped table-bordered table-condensed">
             <thead>
             <tr>
