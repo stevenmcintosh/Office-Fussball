@@ -1,5 +1,1 @@
-Steven McIntosh build this on his own using default MVC framework.
-
-Was for fun. It was fun.
-
-ste.mcintosh@gmail.com
+Just me, Steve and some open source templates to kick off.
