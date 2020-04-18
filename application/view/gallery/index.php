@@ -1,4 +1,3 @@
-<?php //print_r($leagueFixtures);   ?>
 <div class="row topRow">
     <div class="col-md-12">
         <div class="page-header">

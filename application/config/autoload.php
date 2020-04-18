@@ -6,7 +6,7 @@
  * The PHP Framework Interoperability Group (@see https://github.com/php-fig/fig-standards) recommends using a
  * standardized auto-loader https://github.com/php-fig/fig-standards/blob/master/accepted/PSR-0.md, so we do:
  */
-function autoload($class) {
+/*function autoload($class) {
     // if file does not exist in LIBS_PATH folder [set it in config/config.php]
     if (file_exists(LIBS_PATH . $class . ".php")) {
         require_once LIBS_PATH . $class . ".php";
@@ -17,3 +17,4 @@ function autoload($class) {
     }
 }
 spl_autoload_register("autoload");
+*/

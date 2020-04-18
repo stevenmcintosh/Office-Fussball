@@ -3,7 +3,7 @@ class Login extends Controller
 {
     public function index()
     {
-    	$loadLoginView = (LDAP_ACTIVE) ? 'index' : 'index_local';
+		$loadLoginView = (LDAP_ACTIVE) ? 'index' : 'index_local';
     	
     	$pageTitle = "Login";
     	//print_r($_SESSION);
@@ -14,7 +14,8 @@ class Login extends Controller
     		$userModel->password = $_POST['password'];
     		
     		if($userModel->login_user('LDAP_ACTIVE')) {
-        		Session::set('user_logged_in', 'true');
+				
+				Session::set('user_logged_in', 'true');
     			header('location: ' . URL);
         		exit();	
     		}else{
@@ -23,8 +24,6 @@ class Login extends Controller
 				require APP .'view/login/index.php';
     		}
     	} else {
-    		
-    		
         	require APP . 'view/_templates/feedback.php';
         	require APP . 'view/login/'.$loadLoginView.'.php';
     	}

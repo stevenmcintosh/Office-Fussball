@@ -30,11 +30,13 @@ define('URL', URL_PROTOCOL . URL_DOMAIN . URL_SUB_FOLDER);
  * Configuration for: Folders
  * Here you define where your folders are. Unless you have renamed them, there's no need to change this.
  */
+
+ /*
 define('LIBS_PATH', APP . 'libs/');
 define('CONTROLLER_PATH', APP . 'controllers/');
 define('MODELS_PATH', APP . 'model/');
 define('DB_BACKUP_PATH', APP . 'db_backups/');
-
+*/
 /**
  * Configuration for: Database
  * This is the place where you define your database credentials, database type etc.
