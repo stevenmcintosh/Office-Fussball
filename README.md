@@ -62,16 +62,18 @@ MySQL Server version: 5.7.26
 1. Clone the Repo
 2. Place the "application" and "public" folders into your web root
 3. Add the .htaccess file into your web root too.
+   
    *Note: If your not using the webroot, then make sure to change the redirect url in your .htaccess files located at:*
-   *[webroot]/.htaccces*
-   *[webroot]/public/.htaccces*
+   * *[webroot]/.htaccces*
+   * *[webroot]/public/.htaccces*
+  
    Example if fussball will be in its own folder:
-   `RewriteRule ^(.*) /public/$1 [L]` 
+   ```RewriteRule ^(.*) /public/$1 [L]``` 
    Becomes
-   `RewriteRule ^(.*) /fussball/public/$1 [L]`
+   ```RewriteRule ^(.*) /fussball/public/$1 [L]```
 4. Run the MySQL file to install the database. The MySQL file is in the download at: /sql/fussball.sql
-5. Edit the config file with your database details
-   *  "application/config/config_localhost.php"
+5. Edit the config file with your database details (use localhost config if setting up on localhost)
+   *  "application/config/config.php" OR
 6. Open the webroot and you should see the homepage with a login. YTou can log in with the below default admin user
   *Note: by default Activee Directory (LDAP) is turned off, you can turn on via the admin panel)*
    *  Username: adminusr
