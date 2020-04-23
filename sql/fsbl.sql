@@ -1,26 +1,101 @@
 -- phpMyAdmin SQL Dump
--- version 4.9.3
+-- version 4.9.5
 -- https://www.phpmyadmin.net/
 --
--- Host: localhost:8889
--- Generation Time: Apr 07, 2020 at 11:52 AM
--- Server version: 5.7.26
--- PHP Version: 7.3.9
+-- Host: db5000376810.hosting-data.io
+-- Generation Time: Apr 23, 2020 at 01:36 PM
+-- Server version: 5.7.28-log
+-- PHP Version: 7.0.33-0+deb9u7
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
+START TRANSACTION;
 SET time_zone = "+00:00";
-SET GLOBAL sql_mode = "";
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
+
 --
 -- Database: `fsbl`
 --
-CREATE DATABASE IF NOT EXISTS `fsbl` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
-USE `fsbl`;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `admin_area`
+--
+
+CREATE TABLE `admin_area` (
+  `id` int(10) NOT NULL,
+  `area_name` varchar(100) NOT NULL,
+  `display_order` int(10) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `admin_area`
+--
+
+INSERT INTO `admin_area` (`id`, `area_name`, `display_order`) VALUES
+(1, 'Menus', 10),
+(2, 'Divisions', 5),
+(3, 'General', 10),
+(4, 'Access', 100),
+(5, 'Scoring', 4);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `admin_controls`
+--
+
+CREATE TABLE `admin_controls` (
+  `id` int(10) NOT NULL,
+  `var` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `description` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `area_id` int(10) NOT NULL,
+  `active` enum('0','1') COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '0',
+  `value` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `locked` enum('0','1') COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '0',
+  `last_updated` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `updated_by_user_id` int(10) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `admin_controls`
+--
+
+INSERT INTO `admin_controls` (`id`, `var`, `name`, `description`, `area_id`, `active`, `value`, `locked`, `last_updated`, `updated_by_user_id`) VALUES
+(1, 'MENU_STATS', 'Stats Menu', 'Activates the Stats menu', 1, '1', '1', '0', '2016-08-07 17:49:46', 1),
+(2, 'NUM_TEAMS_PROMOTED', 'Number Promoted Teams/Players', 'The number of rows to highlight at the top of the league table as being in a promotion position.', 2, '1', '1', '0', '2016-10-26 19:22:54', 1),
+(3, 'MENU_SEASON', 'Season Menu', 'Activates the Season menu', 1, '1', '1', '1', '2016-08-07 17:49:49', 1),
+(4, 'MENU_TEAMS', 'Team Menu', 'Activates the Teams menu', 1, '1', '1', '0', '2016-08-07 17:49:53', 1),
+(5, 'MENU_HALL_OF_FAME', 'Hall of Fame Menu', 'Activates the Hall of Fame menu', 1, '1', '1', '0', '2016-08-07 17:51:36', 1),
+(6, 'MENU_SPORTSBOOK', 'Sportsbook menu', 'Activates the Sportsbook menu', 1, '0', '0', '0', '2020-04-11 16:51:54', 1),
+(7, 'MENU_LOGOUT', 'Log out Menu', 'Activates the Log out menu', 1, '1', '1', '0', '2016-08-07 17:49:50', 1),
+(8, 'MENU_HALL_OF_FAME', 'Hall of Fame Menu', 'Activates the Hall of Fame menu', 1, '1', '1', '0', '2016-08-07 17:59:34', 1),
+(9, 'MENU_SPORTSBOOK', 'Sportsbook menu', 'Activates the Sportsbook menu', 1, '1', '1', '0', '2016-08-07 17:49:55', 1),
+(10, 'MENU_GALLERY', 'Gallery Menu', 'Activates the Gallery menu', 1, '1', '1', '0', '2016-08-07 17:49:54', 1),
+(11, 'MENU_HELP', 'Help Menu', 'Activates the Help Menu', 1, '1', '1', '0', '2016-08-07 17:50:00', 1),
+(12, 'MENU_ADMIN', 'Admin Menu', 'Activates the Admin menu', 1, '1', '1', '0', '2016-08-07 17:49:59', 1),
+(13, 'MENU_FIXTURES', 'Fixtures menu', 'Activates the Fixtures menu', 1, '1', '1', '0', '2016-08-07 17:49:58', 1),
+(14, 'MENU_RULES', 'Rules Menu', 'Activates the rules menu', 1, '1', '1', '0', '2016-08-07 17:50:02', 1),
+(15, 'SESSION_TIMEOUT_IN_SECONDS', 'Session Timeout', 'The amount of seconds a user session is kept alive. If a user does not make any activity in this time they will be forced to log back in. \n1800 = 3 mins.\nThis must be active at all times, therefore, if you change to inactive, it will be still be \nactive.', 4, '1', '342225', '0', '2016-08-07 18:52:45', 1),
+(16, 'SITE_NAME', 'Site Name', 'The name of the website. This will appear as the website title.', 3, '1', 'Office Fussball', '0', '2020-04-07 09:44:58', 1),
+(17, 'NUM_TEAMS_RELEGATED', 'Number Relegated Teams/Players', 'The number of rows to highlight at the bottom of the league table as being in a relegation position.', 2, '1', '1', '0', '2016-10-26 19:22:54', 1),
+(18, 'HOME_PAGE_RECENT_RESULTS', 'Homepage results', 'The number of homepage recent results to display', 3, '1', '3', '0', '2016-08-07 18:40:49', 1),
+(19, 'LDAP_ACTIVE', 'LDAP Access', 'Activates the LDAP (login via Active Directory) setting', 4, '0', '0', '0', '2016-08-07 17:50:06', 1),
+(20, 'FIRST_TO_GOALS', 'First to X goals', 'All scores are validated to ensure at least one side reaches this total.\r\n0 = deactivated', 5, '0', '10', '0', '2016-08-07 18:36:05', 1);
 
 -- --------------------------------------------------------
 
 --
 -- Table structure for table `competitionType`
 --
+
 CREATE TABLE `competitionType` (
   `competitionId` int(11) NOT NULL,
   `competitionName` varchar(50) NOT NULL
@@ -67,17 +142,29 @@ INSERT INTO `division` (`divisionId`, `divisionName`, `divisionShortName`, `divi
 CREATE TABLE `fixture` (
   `fixtureId` int(10) NOT NULL,
   `competitionId` int(10) NOT NULL,
-  `homeTeamId` int(11) DEFAULT NULL,
+  `homeTeamId` int(11) NOT NULL,
   `awayTeamId` int(10) NOT NULL,
   `statusId` int(1) NOT NULL,
   `lastUpdated` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `fixture`
 --
 
-
+INSERT INTO `fixture` (`fixtureId`, `competitionId`, `homeTeamId`, `awayTeamId`, `statusId`, `lastUpdated`) VALUES
+(1, 1, 1, 2, 2, '2020-04-11 16:28:17'),
+(2, 1, 1, 3, 2, '2020-04-11 16:28:22'),
+(3, 1, 2, 3, 2, '2020-04-11 16:28:28'),
+(4, 1, 2, 1, 2, '2020-04-11 16:28:34'),
+(5, 1, 3, 1, 2, '2020-04-11 15:56:44'),
+(6, 1, 3, 2, 2, '2020-04-11 16:29:00'),
+(31, 1, 2, 1, 1, '2020-04-11 16:46:41'),
+(32, 1, 2, 3, 1, '2020-04-11 16:46:41'),
+(33, 1, 1, 3, 1, '2020-04-11 16:46:41'),
+(34, 1, 1, 2, 2, '2020-04-11 16:50:16'),
+(35, 1, 3, 2, 1, '2020-04-11 16:46:41'),
+(36, 1, 3, 1, 1, '2020-04-11 16:46:41');
 
 -- --------------------------------------------------------
 
@@ -124,7 +211,19 @@ CREATE TABLE `leagueFixture` (
 -- Dumping data for table `leagueFixture`
 --
 
-
+INSERT INTO `leagueFixture` (`leagueFixtureId`, `seasonId`, `divisionId`, `fixtureId`, `gameweek`, `homeScore`, `awayScore`, `homeWinPts`, `awayWinPts`, `homeGrannyPts`, `awayGrannyPts`, `homeLosePts`, `awayLosePts`, `team_a_provisional_score`, `team_b_provisional_score`, `admin_verified`, `provisional_score_added_by_team_id`, `provisional_score_verified_by_team_id`) VALUES
+(1, 1, 5, 1, 1, 10, 2, 3, 0, 0, 0, 0, 0, 1, 10, 1, 1, 0),
+(2, 1, 5, 2, 2, 10, 9, 2, 0, 0, 0, 0, 1, NULL, NULL, 1, 0, 0),
+(3, 1, 5, 3, 3, 10, 6, 3, 0, 0, 0, 0, 0, NULL, NULL, 1, 0, 0),
+(4, 1, 5, 4, 4, 9, 10, 0, 2, 0, 0, 1, 0, NULL, NULL, 1, 0, 0),
+(5, 1, 5, 5, 5, 10, 8, 3, 0, 0, 0, 0, 0, NULL, NULL, 1, 0, 0),
+(6, 1, 5, 6, 6, 5, 10, 0, 3, 0, 0, 0, 0, NULL, NULL, 1, 0, 0),
+(15, 2, 5, 31, 1, NULL, NULL, 0, 0, 0, 0, 0, 0, NULL, NULL, 0, 0, 0),
+(16, 2, 5, 32, 2, NULL, NULL, 0, 0, 0, 0, 0, 0, NULL, NULL, 0, 0, 0),
+(17, 2, 5, 33, 3, NULL, NULL, 0, 0, 0, 0, 0, 0, NULL, NULL, 0, 0, 0),
+(18, 2, 5, 34, 4, 10, 9, 2, 0, 0, 0, 0, 1, NULL, NULL, 1, 0, 0),
+(19, 2, 5, 35, 5, NULL, NULL, 0, 0, 0, 0, 0, 0, NULL, NULL, 0, 0, 0),
+(20, 2, 5, 36, 6, NULL, NULL, 0, 0, 0, 0, 0, 0, NULL, NULL, 0, 0, 0);
 
 -- --------------------------------------------------------
 
@@ -158,8 +257,15 @@ CREATE TABLE `season` (
   `seasonId` int(5) NOT NULL,
   `seasonName` varchar(200) NOT NULL,
   `statusId` int(1) NOT NULL DEFAULT '1'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- Dumping data for table `season`
+--
+
+INSERT INTO `season` (`seasonId`, `seasonName`, `statusId`) VALUES
+(1, '1', 2),
+(2, '2', 1);
 
 -- --------------------------------------------------------
 
@@ -170,7 +276,7 @@ CREATE TABLE `season` (
 CREATE TABLE `status` (
   `statusId` int(11) NOT NULL,
   `statusName` varchar(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `status`
@@ -192,7 +298,7 @@ CREATE TABLE `team` (
   `teamId` int(11) NOT NULL,
   `teamName` varchar(255) NOT NULL,
   `teamType` int(1) NOT NULL DEFAULT '1'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `team`
@@ -201,7 +307,8 @@ CREATE TABLE `team` (
 INSERT INTO `team` (`teamId`, `teamName`, `teamType`) VALUES
 (1, 'Johnny United', 1),
 (2, 'Flasher United', 2),
-(3, 'Spiller United', 3);
+(3, 'Spiller United', 3),
+(52, 'Eddie', 1);
 
 -- --------------------------------------------------------
 
@@ -241,7 +348,8 @@ CREATE TABLE `teamUser` (
 INSERT INTO `teamUser` (`teamUserId`, `teamId`, `userId`) VALUES
 (1, 1, 1),
 (2, 2, 2),
-(3, 3, 3);
+(3, 3, 3),
+(52, 52, 62);
 
 -- --------------------------------------------------------
 
@@ -267,77 +375,117 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`userId`, `ldapUsername`, `email`, `firstName`, `lastName`, `nickname`, `admin`, `committee`, `dateLastLoggedIn`, `waitingToJoin`) VALUES
-(1, 'adminusr', 'test1@test.com', 'John', 'doe', 'Johnny', 'y', 'y', '2016-07-26 23:38:11', 0),
-(2, 'shortedd', 'test2@test.com', 'Eddie', 'Short', 'Shortie', 'y', 'y', '2016-07-26 23:38:11', 0),
-(3, 'spillman', 'test3@test.com', 'Steph', 'Spillman', 'Spiller', 'y', 'y', '2016-07-26 23:38:11', 0);
+(1, 'adminusr', 'test1@test.com', 'John', 'doe', 'Johnny', 'y', 'y', '2020-04-18 10:28:30', 0),
+(2, 'mcintste', 'test2@test.com', 'Steve', 'McIntosh', 'Flashman', 'y', 'y', '2016-07-26 23:38:11', 0),
+(3, 'steffyj', 'test3@test.com', 'Steph', 'McIntosh', 'Spiller', 'y', 'y', '2016-07-26 23:38:11', 0),
+(62, 'Eddie', 'sales@ttcases.com', 'Edward', 'Troup', 'Eddie', 'y', 'n', NULL, 0),
+(63, 'frankfur', 'wotigot@gmail.com', 'Frank', 'Fish', 'fishy', 'y', 'n', NULL, 0);
 
 --
 -- Indexes for dumped tables
 --
 
 --
+-- Indexes for table `admin_area`
+--
+ALTER TABLE `admin_area`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `admin_controls`
+--
+ALTER TABLE `admin_controls`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `competitionType`
 --
-ALTER TABLE `competitionType` ADD PRIMARY KEY (`competitionId`);
+ALTER TABLE `competitionType`
+  ADD PRIMARY KEY (`competitionId`);
 
 --
 -- Indexes for table `division`
 --
-ALTER TABLE `division` ADD PRIMARY KEY (`divisionId`);
+ALTER TABLE `division`
+  ADD PRIMARY KEY (`divisionId`);
 
 --
 -- Indexes for table `fixture`
 --
-ALTER TABLE `fixture` ADD PRIMARY KEY (`fixtureId`);
--- ALTER TABLE `fixture` FORCE
+ALTER TABLE `fixture`
+  ADD PRIMARY KEY (`fixtureId`);
+
 --
 -- Indexes for table `fixtureTmp`
 --
-ALTER TABLE `fixtureTmp` ADD PRIMARY KEY (`fixtureId`);
+ALTER TABLE `fixtureTmp`
+  ADD PRIMARY KEY (`fixtureId`);
 
 --
 -- Indexes for table `leagueFixture`
 --
-ALTER TABLE `leagueFixture` ADD PRIMARY KEY (`leagueFixtureId`);
+ALTER TABLE `leagueFixture`
+  ADD PRIMARY KEY (`leagueFixtureId`);
 
 --
 -- Indexes for table `leagueFixtureTmp`
 --
-ALTER TABLE `leagueFixtureTmp` ADD PRIMARY KEY (`leagueFixtureId`);
+ALTER TABLE `leagueFixtureTmp`
+  ADD PRIMARY KEY (`leagueFixtureId`);
 
 --
 -- Indexes for table `season`
 --
-ALTER TABLE `season` ADD PRIMARY KEY (`seasonId`);
+ALTER TABLE `season`
+  ADD PRIMARY KEY (`seasonId`);
 
 --
 -- Indexes for table `status`
 --
-ALTER TABLE `status` ADD PRIMARY KEY (`statusId`);
+ALTER TABLE `status`
+  ADD PRIMARY KEY (`statusId`);
 
 --
 -- Indexes for table `team`
 --
-ALTER TABLE `team` ADD PRIMARY KEY (`teamId`), ADD UNIQUE KEY `unique_teamName` (`teamName`);
+ALTER TABLE `team`
+  ADD PRIMARY KEY (`teamId`),
+  ADD UNIQUE KEY `teamName` (`teamName`);
 
 --
 -- Indexes for table `teamType`
 --
-ALTER TABLE `teamType` ADD PRIMARY KEY (`teamTypeId`);
+ALTER TABLE `teamType`
+  ADD PRIMARY KEY (`teamTypeId`);
 
 --
 -- Indexes for table `teamUser`
 --
-ALTER TABLE `teamUser` ADD PRIMARY KEY (`teamUserId`), ADD UNIQUE KEY `teamId` (`teamId`,`userId`);
+ALTER TABLE `teamUser`
+  ADD PRIMARY KEY (`teamUserId`),
+  ADD UNIQUE KEY `teamId` (`teamId`,`userId`);
 
 --
 -- Indexes for table `user`
 --
-ALTER TABLE `user` ADD PRIMARY KEY (`userId`);
+ALTER TABLE `user`
+  ADD PRIMARY KEY (`userId`);
 
 --
 -- AUTO_INCREMENT for dumped tables
 --
+
+--
+-- AUTO_INCREMENT for table `admin_area`
+--
+ALTER TABLE `admin_area`
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
+-- AUTO_INCREMENT for table `admin_controls`
+--
+ALTER TABLE `admin_controls`
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT for table `competitionType`
@@ -355,7 +503,7 @@ ALTER TABLE `division`
 -- AUTO_INCREMENT for table `fixture`
 --
 ALTER TABLE `fixture`
-  MODIFY `fixtureId` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=0;
+  MODIFY `fixtureId` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
 
 --
 -- AUTO_INCREMENT for table `fixtureTmp`
@@ -367,7 +515,7 @@ ALTER TABLE `fixtureTmp`
 -- AUTO_INCREMENT for table `leagueFixture`
 --
 ALTER TABLE `leagueFixture`
-  MODIFY `leagueFixtureId` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=0;
+  MODIFY `leagueFixtureId` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT for table `leagueFixtureTmp`
@@ -379,7 +527,7 @@ ALTER TABLE `leagueFixtureTmp`
 -- AUTO_INCREMENT for table `season`
 --
 ALTER TABLE `season`
-  MODIFY `seasonId` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `seasonId` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `status`
@@ -391,7 +539,7 @@ ALTER TABLE `status`
 -- AUTO_INCREMENT for table `team`
 --
 ALTER TABLE `team`
-  MODIFY `teamId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=52;
+  MODIFY `teamId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=53;
 
 --
 -- AUTO_INCREMENT for table `teamType`
@@ -403,80 +551,15 @@ ALTER TABLE `teamType`
 -- AUTO_INCREMENT for table `teamUser`
 --
 ALTER TABLE `teamUser`
-  MODIFY `teamUserId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=52;
+  MODIFY `teamUserId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=53;
 
 --
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `userId` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=62;
+  MODIFY `userId` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=64;
+COMMIT;
 
--- --------------------------------------------------------
-
---
--- Table structure for table `admin_area`
---
-
-CREATE TABLE `admin_area` (
-  `id` int(10) NOT NULL,
-  `area_name` varchar(100) NOT NULL,
-  `display_order` int(10) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Dumping data for table `admin_area`
---
-
-INSERT INTO `admin_area` (`id`, `area_name`, `display_order`) VALUES
-(1, 'Menus', 10),
-(2, 'Divisions', 5),
-(3, 'General', 10),
-(4, 'Access', 100),
-(5, 'Scoring', 4);
-
--- --------------------------------------------------------
-
---
--- Table structure for table `admin_controls`
---
-
-CREATE TABLE `admin_controls` (
-  `id` int(10) NOT NULL,
-  `var` varchar(255) NOT NULL,
-  `name` varchar(255) NOT NULL,
-  `description` text NOT NULL,
-  `area_id` int(10) NOT NULL,
-  `active` enum('0','1') NOT NULL DEFAULT '0',
-  `value` varchar(255) DEFAULT '0',
-  `locked` enum('0','1') NOT NULL DEFAULT '0',
-  `last_updated` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00' ON UPDATE CURRENT_TIMESTAMP,
-  `updated_by_user_id` int(10) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Dumping data for table `admin_controls`
---
-
-INSERT INTO `admin_controls` (`id`, `var`, `name`, `description`, `area_id`, `active`, `value`, `locked`, `last_updated`, `updated_by_user_id`) VALUES
-(1, 'MENU_STATS', 'Stats Menu', 'Activates the Stats menu', 1, '1', '1', '0', '2016-08-07 19:49:46', 1),
-(2, 'NUM_TEAMS_PROMOTED', 'Number Promoted Teams/Players', 'The number of rows to highlight at the top of the league table as being in a promotion position.', 2, '1', '1', '0', '2016-10-26 21:22:54', 1),
-(3, 'MENU_SEASON', 'Season Menu', 'Activates the Season menu', 1, '1', '1', '1', '2016-08-07 19:49:49', 1),
-(4, 'MENU_TEAMS', 'Team Menu', 'Activates the Teams menu', 1, '1', '1', '0', '2016-08-07 19:49:53', 1),
-(5, 'MENU_HALL_OF_FAME', 'Hall of Fame Menu', 'Activates the Hall of Fame menu', 1, '1', '1', '0', '2016-08-07 19:51:36', 1),
-(6, 'MENU_SPORTSBOOK', 'Sportsbook menu', 'Activates the Sportsbook menu', 1, '1', '1', '0', '2020-04-06 22:10:14', 1),
-(7, 'MENU_LOGOUT', 'Log out Menu', 'Activates the Log out menu', 1, '1', '1', '0', '2016-08-07 19:49:50', 1),
-(8, 'MENU_HALL_OF_FAME', 'Hall of Fame Menu', 'Activates the Hall of Fame menu', 1, '1', '1', '0', '2016-08-07 19:59:34', 1),
-(9, 'MENU_SPORTSBOOK', 'Sportsbook menu', 'Activates the Sportsbook menu', 1, '1', '1', '0', '2016-08-07 19:49:55', 1),
-(10, 'MENU_GALLERY', 'Gallery Menu', 'Activates the Gallery menu', 1, '1', '1', '0', '2016-08-07 19:49:54', 1),
-(11, 'MENU_HELP', 'Help Menu', 'Activates the Help Menu', 1, '1', '1', '0', '2016-08-07 19:50:00', 1),
-(12, 'MENU_ADMIN', 'Admin Menu', 'Activates the Admin menu', 1, '1', '1', '0', '2016-08-07 19:49:59', 1),
-(13, 'MENU_FIXTURES', 'Fixtures menu', 'Activates the Fixtures menu', 1, '1', '1', '0', '2016-08-07 19:49:58', 1),
-(14, 'MENU_RULES', 'Rules Menu', 'Activates the rules menu', 1, '1', '1', '0', '2016-08-07 19:50:02', 1),
-(15, 'SESSION_TIMEOUT_IN_SECONDS', 'Session Timeout', 'The amount of seconds a user session is kept alive. If a user does not make any activity in this time they will be forced to log back in. \n1800 = 3 mins.\nThis must be active at all times, therefore, if you change to inactive, it will be still be \nactive.', 4, '1', '342225', '0', '2016-08-07 20:52:45', 1),
-(16, 'SITE_NAME', 'Site Name', 'The name of the website. This will appear as the website title.', 3, '1', 'Office Fussball', '0', '2020-04-07 11:44:58', 1),
-(17, 'NUM_TEAMS_RELEGATED', 'Number Relegated Teams/Players', 'The number of rows to highlight at the bottom of the league table as being in a relegation position.', 2, '1', '1', '0', '2016-10-26 21:22:54', 1),
-(18, 'HOME_PAGE_RECENT_RESULTS', 'Homepage results', 'The number of homepage recent results to display', 3, '1', '3', '0', '2016-08-07 20:40:49', 1),
-(19, 'LDAP_ACTIVE', 'LDAP Access', 'Activates the LDAP (login via Active Directory) setting', 4, '0', '0', '0', '2016-08-07 19:50:06', 1),
-(20, 'FIRST_TO_GOALS', 'First to X goals', 'All scores are validated to ensure at least one side reaches this total.\r\n0 = deactivated', 5, '0', '10', '0', '2016-08-07 20:36:05', 1);
-
--- --------------------------------------------------------
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
