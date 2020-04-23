@@ -2,7 +2,7 @@
 
 <div class="row topRow">
     <div class="col-md-12">
-        <h1>Create User</h1>
+        <h1>Create New User</h1>
     </div>
 </div>
 
