@@ -148,7 +148,6 @@ class Admin extends Controller {
         }
 
         $allAdminSettings = $adminSettingsModel->getAllAdminSettings();
-
         require APP . 'view/_templates/header.php';
         require APP . 'view/_templates/feedback.php';
         require APP . 'view/admin/adminSettings.php';

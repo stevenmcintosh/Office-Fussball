@@ -8,7 +8,9 @@
 <div class="row">
     <div class="col-md-12">
         <form method="post" action="<?php echo URL; ?>admin/adminSettings">
-            <?php foreach ($allAdminSettings as $areaName => $adminSettings) { 
+            <?php 
+            
+            foreach ($allAdminSettings as $areaName => $adminSettings) { 
                 
                 
                 ?>

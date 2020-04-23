@@ -103,12 +103,14 @@ class AdminSettingsModel {
         $sql = "SELECT AC.id, AC.var, AC.name, AC.description, AA.area_name as area_name, AC.active, AC.value, AC.locked, AC.last_updated, AC.updated_by_user_id as updated_by_user_id FROM admin_controls AC JOIN admin_area AA ON AC.area_id = AA.id";
         $query = $this->db->prepare($sql);
         $query->execute();
+    
+        $adminSettings = array();
         foreach ($query->fetchAll() as $key => $val) {
             $adminSettingsModel = new AdminSettingsModel($this->db);    
-            $this->adminSettings[$val->area_name][] = $adminSettingsModel->load($val->id);
+            $adminSettings[$val->area_name][] = $adminSettingsModel->load($val->id);
         }
 
-        return $this->adminSettings;
+        return $adminSettings;
     }
 
     private function validate() {
