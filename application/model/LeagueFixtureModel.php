@@ -394,14 +394,9 @@ class LeagueFixtureModel extends FixturesModel {
     }
 
     public function moveAllTmpToLive() {
-
-         
         $this->makeTmpFixtureIdsSafe();
-        
         $this->moveTmpFixturesToLive();
-        
         $this->moveTmpLeagueFixtureToLive();
-     //   exit();
     }
 
     public function createLeagueFixtures($season_id, $teams, $divisionId) {

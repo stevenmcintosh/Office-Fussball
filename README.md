@@ -55,9 +55,10 @@ Admin Pages
 *********************** 3. Instructions ************************
 ****************************************************************
 
-Tested with:
+Tested with and required for install:
 PHP Version 7.3.9
 MySQL Server version: 5.7.26
+PHP Composer (latest version always best)
 
 1. Clone the Repo
 2. Place the "application" and "public" folders into your web root
@@ -71,10 +72,11 @@ MySQL Server version: 5.7.26
    ```RewriteRule ^(.*) /public/$1 [L]``` 
    Becomes
    ```RewriteRule ^(.*) /fussball/public/$1 [L]```
-4. Run the MySQL file to install the database. The MySQL file is in the download at: /sql/fussball.sql
-5. Edit the config file with your database details (use localhost config if setting up on localhost)
+4. Run PHP Composer insude the Fussball directory to download all dependacies 
+5. Run the MySQL file to install the database. The MySQL file is in the download at: /sql/fussball.sql
+6. Edit the config file with your database details (use localhost config if setting up on localhost)
    *  "application/config/config.php" OR
-6. Open the webroot and you should see the homepage with a login. YTou can log in with the below default admin user
+7. Open the webroot and you should see the homepage with a login. YTou can log in with the below default admin user
   *Note: by default Activee Directory (LDAP) is turned off, you can turn on via the admin panel)*
    *  Username: adminusr
    *  Email: test@test.com

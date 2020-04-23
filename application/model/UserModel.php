@@ -75,19 +75,6 @@ class UserModel {
             lastName = :lastName,
             nickName = :nickName,
             admin = :admin";
-           
-           
-            /* $sql = "UPDATE user SET 
-            ldapUsername = :ldapUsername, 
-            email = :email, 
-            firstName = :firstName,
-            lastName = :lastName,
-            nickName = :nickName,
-            admin = :admin"; 
-            
-            if(!$newUser) {
-                $sql .= " WHERE userId = :userId";
-            } */
 
             $query = $this->db->prepare($sql);
             $sql_array = array(
@@ -99,10 +86,6 @@ class UserModel {
                 ':nickName' => $this->nickname,
                 ':admin' => $this->admin);
 
-                /*if(!$newUser) {
-                   $sql_array[':userId'] = $this->userId;
-                }*/
-                //exit(print_r($query));
             if($query->execute($sql_array)) {
                 $returnVal = true;
             }

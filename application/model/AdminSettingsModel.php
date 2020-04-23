@@ -104,12 +104,9 @@ class AdminSettingsModel {
         $query = $this->db->prepare($sql);
         $query->execute();
         foreach ($query->fetchAll() as $key => $val) {
-            $adminSettingsModel = new AdminSettingsModel($this->db);
+            $adminSettingsModel = new AdminSettingsModel($this->db);    
             $this->adminSettings[$val->area_name][] = $adminSettingsModel->load($val->id);
         }
-
-
-        //print_r($this->adminSettings);
 
         return $this->adminSettings;
     }
@@ -117,7 +114,6 @@ class AdminSettingsModel {
     private function validate() {
         $returnval = true;
 
-        //print_r($this);
         if ($this->value == '') {
             $this->errors['feedback']['value'] = $this->value . ' can not have an empty value';
         }

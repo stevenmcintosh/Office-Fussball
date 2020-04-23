@@ -110,8 +110,8 @@ class Admin extends Controller {
 
     public function adminSettings() {
         $adminSettingsModel = new AdminSettingsModel($this->db);
-        //$allAdminSettings = $adminSettingsModel->getAllAdminSettings();
-        //print_r($_POST);
+        $allAdminSettings = $adminSettingsModel->getAllAdminSettings();
+        
 
         if (isset($_POST['adminSetting'])) {
             foreach ($_POST['adminSetting'] as $settingId => $val) {
