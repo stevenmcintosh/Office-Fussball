@@ -1,0 +1,21 @@
+Running any composer commands on webhost is via SSH
+
+ssh u87163710@home656220294.1and1-data.host
+Pass: (get from vault)
+
+cd stevenmcintosh.co.uk/
+cd /Office-Fussball
+
+#/usr/bin/php7.3-cli composer.phar install
+
+Localhost
+To send any code amends to the repo
+#git push origin master
+
+
+On Stevenmcintosh.co.uk you should only pull new code from the repo
+#git pull origin master
+
+(Note: the only files you want to ever avoid pulling (or you’ll overwrite and need to re-edit) is the:
+- Config/config.php (we don’t want to edit DB login credentials)
+- .htaccess files (these point to different roots, if overriding you;ll need to change both)

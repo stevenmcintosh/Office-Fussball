@@ -108,21 +108,7 @@ $dbcharset = 'utf8';
 
 
 ****************************************************************
-*********************** 4. MySQL Warnings **********************
-****************************************************************
-
-On localhost, all warnings are shown.
-
-If you receive some warnings, it may be because of your settings or some upgrages to MySQL.
-
-To rid these warnings, open my.cnf (probably in your conf dir) and find the [mysqld] group, then paste the line below:
-
-[mysqld]
-sql_mode="STRICT_TRANS_TABLES,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION"
-
-
-****************************************************************
-*********************** 5. Screenshots *************************
+*********************** 4. Screenshots *************************
 ****************************************************************
 
 League Tables
