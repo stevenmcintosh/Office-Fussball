@@ -1,9 +1,5 @@
 RewriteEngine on
-<Files "cron.php">
-     Order Deny,Allow
-     Allow from All
-</Files>
-
-
-
-
+Order Allow,Deny
+<FilesMatch "cron.php">
+     Allow from all
+</FilesMatch>
