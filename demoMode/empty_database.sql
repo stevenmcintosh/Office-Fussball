@@ -1,0 +1,14 @@
+DROP TABLE `admin_area`;
+DROP TABLE `admin_controls`;
+DROP TABLE `competitionType`;
+DROP TABLE `division`; 
+DROP TABLE `fixture`;
+DROP TABLE `fixtureTmp`;
+DROP TABLE `leagueFixture`;
+DROP TABLE `leagueFixtureTmp`; 
+DROP TABLE `season`; 
+DROP TABLE `status`; 
+DROP TABLE `team`; 
+DROP TABLE `teamType`; 
+DROP TABLE `teamUser`; 
+DROP TABLE `user`;

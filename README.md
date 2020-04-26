@@ -73,15 +73,14 @@ PHP Composer (latest version always best)
    Becomes
    ```RewriteRule ^(.*) /fussball/public/$1 [L]```
 4. Run PHP Composer insude the Fussball directory to download all dependacies 
-5. Run the MySQL file to install the database. The MySQL file is in the download at: /sql/fussball.sql
+5. Run the MySQL file [/sql/fsbl.sql] to install the database, users, teams, etc.
 6. Create a file manually called [database_connection.php] and add your Database login details. See example file below. This step is manual as it ensures the file is not tracked by the repo and overwritten if you need to re-pull fro the repo. This needs to be stored in [/office-fussball/application/config/database_connection.php]
 7. Open the webroot and you should see the homepage with a login. YTou can log in with the below default admin user
   *Note: by default Activee Directory (LDAP) is turned off, you can turn on via the admin panel)*
-   *  Username: adminusr
-   *  Email: test@test.com
-   *  Name: John Doe 
-   *  Nickname: Johnny
-7. Go to admin and create more users, then create teams, then create new season
+   *  Username: demouser
+8. To being playing, first go to admin panel, remove all seasons. 
+9. Then create new users, then create team names for the user, then create new season and off you go.
+
 
 **EXAMPLE database_connection.php** 
 You must create a separate file manually called [database_connection.php] as this file will be checked but never overwriiten. Example code below.
