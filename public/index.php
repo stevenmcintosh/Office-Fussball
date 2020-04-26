@@ -24,19 +24,7 @@ if (file_exists(APP . 'config/autoload.php')) {
    require APP . 'config/autoload.php';
 }
 
-// load application config (error reporting etc.)
-if($_SERVER['REMOTE_ADDR'] == '127.0.0.1' || $_SERVER['REMOTE_ADDR'] == '::1' || $_SERVER['REMOTE_ADDR'] == 'localhost') {
-    require APP . 'config/config_localhost.php';
-    //require APP . 'config/admin_settings_localhost.php';
-} elseif($_SERVER['VirtualServerName'] == 'dev.csr.pstars' || $_SERVER['ServerName'] == 'dev.csr.pstars') {
-    require APP . 'config/config.php';
-    //require APP . 'config/admin_settings.php';
-} else {
-    require APP . 'config/config.php';
-    
-}
-
-
+require APP . 'config/config.php';
 
 // FOR DEVELOPMENT: this loads PDO-debug, a simple function that shows the SQL query (when using PDO).
 // If you want to load pdoDebug via Composer, then have a look here: https://github.com/panique/pdo-debug
@@ -45,8 +33,6 @@ require APP . 'libs/helper.php';
 // load application class
 require APP . 'core/application.php';
 require APP . 'core/controller.php';
-//require APP . 'config/admin_settings.php';
-
 
 /* Load Composer and all dependancies */
 require ROOT . 'vendor/autoload.php';

@@ -2,13 +2,14 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>FusStars</title>
+    <title>FusStars No LDAP</title>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!-- CSS -->
     <link href="<?php echo URL; ?>css/bootstrap.min.css" rel="stylesheet">
     <link href="<?php echo URL; ?>css/application.css" rel="stylesheet">
+    <link href="<?php echo URL; ?>img/favicon.png" rel="icon" type="image/png" >
 </head>
 <body>
 

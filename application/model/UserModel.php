@@ -220,17 +220,12 @@ class UserModel {
     }
 
     public function login_user($ldap = 1) {
-
         $returnval = false;
-
-
-
         if ($ldap == 1) {
             $returnval = $this->loginUserWithLdap();
         } else {
             $returnval = $this->loginUserWithOutLdap();
         }
-
         return $returnval;
     }
 

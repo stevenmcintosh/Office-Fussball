@@ -74,8 +74,7 @@ PHP Composer (latest version always best)
    ```RewriteRule ^(.*) /fussball/public/$1 [L]```
 4. Run PHP Composer insude the Fussball directory to download all dependacies 
 5. Run the MySQL file to install the database. The MySQL file is in the download at: /sql/fussball.sql
-6. Edit the config file with your database details (use localhost config if setting up on localhost)
-   *  "application/config/config.php" OR
+6. Create a file manually called [database_connection.php] and add your Database login details. See example file below. This step is manual as it ensures the file is not tracked by the repo and overwritten if you need to re-pull fro the repo. This needs to be stored in [/office-fussball/application/config/database_connection.php]
 7. Open the webroot and you should see the homepage with a login. YTou can log in with the below default admin user
   *Note: by default Activee Directory (LDAP) is turned off, you can turn on via the admin panel)*
    *  Username: adminusr
@@ -83,6 +82,30 @@ PHP Composer (latest version always best)
    *  Name: John Doe 
    *  Nickname: Johnny
 7. Go to admin and create more users, then create teams, then create new season
+
+**EXAMPLE database_connection.php** 
+You must create a separate file manually called [database_connection.php] as this file will be checked but never overwriiten. Example code below.
+```
+/**
+ * Q. Do I need to ensure the file name is "database_connection.php"
+ * A. Yes.
+ *
+ * Q. What is this? 
+ * A. It is a file to hold your Prod Database connection details. 
+ * 
+ * Q. Why is this created manually and not part of the repo? 
+ * A. Because when you pull from the repo, you will overwrite the your DB settings everytime, so we create a file that the repo doesnt know about.
+ * 
+ * Q. Where does the file go?
+ * A. /office-fussball/application/config/database_connection.php
+ * 
+ */
+$hostname = 'db23974932847.hosting.com';
+$dbname = 'dbname123';
+$dbuser = 'dbuser456';
+$dbpass = 'dbpass789';
+$dbcharset = 'utf8';
+```
 
 
 ****************************************************************

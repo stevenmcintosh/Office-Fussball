@@ -5,7 +5,6 @@ class Controller
     public $db = null;
     public $model = null;
 
-
     /**
      * Whenever controller is created, open a database connection too and load "the model".
      */
@@ -17,11 +16,7 @@ class Controller
         // load the defined vars
         $adminSettingsModel = new AdminSettingsModel($this->db);
         $adminSettingsModel->define_vars();
-        
-        
-        //$this->seasonModel = $this->loadModel('SeasonModel');
-        //$currentSeason = $this->seasonModel->getCurrentSeason();
-
+       
         global $user;
         $userModel = new UserModel($this->db);
         $user = $userModel->load(Session::get('userId'));
@@ -37,8 +32,6 @@ class Controller
         // For example, fetch mode FETCH_ASSOC would return results like this: $result["user_name] !
         // @see http://www.php.net/manual/en/pdostatement.fetch.php
         $options = array(PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_OBJ, PDO::ATTR_ERRMODE => PDO::ERRMODE_WARNING);
-
-
 
         // generate a database connection, using the PDO connector
         // @see http://net.tutsplus.com/tutorials/php/why-you-should-be-using-phps-pdo-for-database-access/

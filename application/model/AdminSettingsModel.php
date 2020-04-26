@@ -90,13 +90,16 @@ class AdminSettingsModel {
         $query = $this->db->prepare($sql);
         $query->execute();
         foreach ($query->fetchAll() as $key => $val) {
+            //echo $val->var . " <br />";
             if (!defined($val->var)) {
                 define($val->var, $val->value);
             }
+            
             if (!defined($val->var. '_ACTIVE')) {
                 define($val->var . '_ACTIVE', $val->active);
             }
         }
+        //echo LDAP_ACTIVE;
     }
 
     public function getAllAdminSettings() {
