@@ -39,17 +39,26 @@ $seasonModel = new SeasonModel($this->db);
 $currentSeason = $seasonModel->getCurrentSeason();?>
 
 
-    <nav class="navbar navbar-inverse navbar-fixed-top">
-      <div class="container">
-                  <div class="navbar-header">
-                      
-<a class="navbar-brand" href="<?php echo URL; ?>" style="padding:4px 0;margin:0"><img src="<?php echo URL;?>img/FusStarsNav2.png" alt="The home of FusStars" style="height:40px"/></a>
-        </div>
-        <div id="navbar" class="collapse navbar-collapse">
-          <ul class="nav navbar-nav">
-            <li  class="<?php if($this->activeNav == 'home') { echo "active"; }?>"><a href="<?php echo URL; ?>">Home</a></li>
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="<?php echo URL; ?>">FUSSTARS</a>
+    </div>
 
-              <?php if(MENU_FIXTURES_ACTIVE) { ?>
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+    <p class="navbar-text navbar-right">Signed in as <a href="<?php echo URL;?>myfussball" class="navbar-link"><?php echo $user->firstName;?></a></p>
+    <ul class="nav navbar-nav">
+        <li  class="<?php if($this->activeNav == 'home') { echo "active"; }?>"><a href="<?php echo URL; ?>">Home</a></li>
+        
+       <?php if(MENU_FIXTURES_ACTIVE) { ?>
               <li class="dropdown <?php if($this->activeNav == 'fixtures') { echo "active"; }?>">
                   <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Fix/Res <span class="caret"></span></a>
                   <ul class="dropdown-menu">
@@ -59,11 +68,8 @@ $currentSeason = $seasonModel->getCurrentSeason();?>
                   </ul>
               </li>
               <?php } ?>
+         
               
-              <?php /* if(MENU_FIXTURES) { ?>
-              <li class="<?php if($this->activeNav == 'fixtures') { echo "active"; }?>"><a href="<?php echo URL; ?>fixtures">Fixtures</a></li>
-              <?php } */ ?>
-
               <?php if(MENU_STATS_ACTIVE) { ?>
               <li class="<?php if($this->activeNav == 'stats') { echo "active"; }?>"><a href="<?php echo URL; ?>stats">Stats</a></li>
               <?php } ?>
@@ -94,19 +100,23 @@ $currentSeason = $seasonModel->getCurrentSeason();?>
               
               
 
-              <?php if(MENU_ADMIN_ACTIVE) { ?>
-              <?php if($user->is_admin()) { ?>
+              <?php if(MENU_ADMIN_ACTIVE) { 
+              if($user->is_admin()) { ?>
               <li class="<?php if($this->activeNav == 'admin') { echo "active"; }?>"><a href="<?php echo URL; ?>admin">Admin</a></li>
               <?php } } ?>
 
               <?php if(MENU_LOGOUT_ACTIVE) { ?>
               <li class="<?php if($this->activeNav == 'logout') { echo "active"; }?>"><a href="<?php echo URL; ?>logout">Logout</a></li>
               <?php } ?>
-          </ul>
-          <p class="navbar-text navbar-right">Signed in as <a href="<?php echo URL;?>myfussball" class="navbar-link"><?php echo $user->firstName;?></a></p>
-        </div><!--/.nav-collapse -->
-      </div>
-    </nav>
+
+              
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+
+
+
+    
     
     <div class="bodyContainer container clearfix">
     

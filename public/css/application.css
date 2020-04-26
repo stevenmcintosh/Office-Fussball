@@ -1,7 +1,15 @@
 .bodyContainer { margin-top:50px; padding-bottom: 70px; }
+/*
 .navbar-fixed-top { border-bottom:3px solid red;}
 .navbar-fixed-bottom { border-top:3px solid blue;}
 .navbar-inverse .navbar-brand { color:#fff;}
+*/
+.navbar-default { background-color:#222 !important;}
+.navbar-brand { color: white !important;}
+.navbar-default .navbar-nav>li>a { color: #eee; }
+.navbar-default .navbar-nav>li>a:focus, .navbar-default .navbar-nav>li>a:hover  { color: rgb(218, 70, 70); }
+
+
 .page-header { border-bottom: 1px solid red;}
 .feedbackRow { margin-top:20px; }
 .feedbackRow .alert { margin-bottom:0px; }
