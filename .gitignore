@@ -3,4 +3,5 @@
 .settings
 
 /vendor/
+/application/config/database_connectioon.php
 ionus_ssh_help.txt
