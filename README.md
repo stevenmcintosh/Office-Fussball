@@ -1,18 +1,14 @@
 ![](/public/img/offfice_fussball_git.png)
 
-1. Intro
+1. Fussball Website Intro
 2. Features
 3. Instructions
 4. MySql
 5. Screenshots
 
-****************************************************************
-*************************** 1. Intro **************************
-****************************************************************
+# 1. Fussball Website Intro (for the office)
 
-# Fussball Website (for the office)
-
-The office got a Fussball table, so I built a website for it :)
+The office purchased a Fussball table, so I built a website for it :)
 
 Leaderboards, Seasons, Promotions, Relegations, Stats, the full sha-bang!
 
@@ -22,10 +18,7 @@ Note: This is ideal for offices that have fusball tables that use Active Directo
 
 Disclaimer. The website was built in a few evenings over 2 weeks. It's not perfect!
 
-****************************************************************
-************************* 2. Features **************************
-****************************************************************
-# Features
+# 2. Features
 
 Full working Fussball League website.
 
@@ -54,10 +47,7 @@ Admin Pages
 
 *Manual administrated pages via HTML.
 
-****************************************************************
-*********************** 3. Instructions ************************
-****************************************************************
-# Instructions
+# 3. Instructions
 ## For the IT Peeps
 
 Tested with and required for install:
@@ -121,11 +111,7 @@ $dbcharset = 'utf8';
 5.  Admin > Create Season
 
 
-
-****************************************************************
-*********************** 4. Screenshots *************************
-****************************************************************
-# Screenshots
+# 4. Screenshots
 
 League Tables
 
