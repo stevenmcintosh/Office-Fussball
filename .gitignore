@@ -4,5 +4,6 @@
 .htaccess
 /public/.htaccess
 /vendor/
+/demoMode/
 /application/config/database_connection.php
 ionus_ssh_help.txt
