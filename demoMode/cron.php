@@ -8,8 +8,8 @@
         public function resetDatabaseToDemoMode() {
             
            
-            if (file_exists('../application/config/database_connection.php')) {
-                include '../application/config/database_connection.php';
+            if (file_exists('/kunden/homepages/43/d656220294/htdocs/stevenmcintosh.co.uk/Office-Fussball/application/config/database_connection.php')) {
+                include '/kunden/homepages/43/d656220294/htdocs/stevenmcintosh.co.uk/Office-Fussball/application/config/database_connection.php';
             } else {
                 exit('You must manually create a database_connection.php file. See the instructions on the GIT. <br />
                 https://github.com/stevenmcintosh/Office-Fussball');
@@ -27,11 +27,11 @@
                 exit('Database connection could not be established. Error message = ' . $e);
             }
 
-            if (!file_exists('../demoMode/empty_database.sql')) {
-                exit('Missing File : ../demoMode/empty_database.sql');
+            if (!file_exists('/kunden/homepages/43/d656220294/htdocs/stevenmcintosh.co.uk/Office-Fussball/demoMode/empty_database.sql')) {
+                exit('Missing File : /kunden/homepages/43/d656220294/htdocs/stevenmcintosh.co.uk/Office-Fussball/demoMode/empty_database.sql');
             }
 
-            $sqlFileToExecute = '../demoMode/empty_database.sql';
+            $sqlFileToExecute = '/kunden/homepages/43/d656220294/htdocs/stevenmcintosh.co.uk/Office-Fussball/demoMode/empty_database.sql';
 
             // read the sql file
             $f = fopen($sqlFileToExecute,"r+");
@@ -46,7 +46,7 @@
                 }
             }
             
-            $stmt = file_get_contents('../sql/fsbl.sql');
+            $stmt = file_get_contents('/kunden/homepages/43/d656220294/htdocs/stevenmcintosh.co.uk/Office-Fussball/sql/fsbl.sql');
             $query = $db->prepare($stmt);
 
             if ($query->execute()) {
