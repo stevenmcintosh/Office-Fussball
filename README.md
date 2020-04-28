@@ -25,6 +25,7 @@ Disclaimer. The website was built in a few evenings over 2 weeks. It's not perfe
 ****************************************************************
 ************************* 2. Features **************************
 ****************************************************************
+# Features
 
 Full working Fussball League website.
 
@@ -56,6 +57,8 @@ Admin Pages
 ****************************************************************
 *********************** 3. Instructions ************************
 ****************************************************************
+# Instructions
+## For the IT Peeps
 
 Tested with and required for install:
 PHP Version 7.3.9
@@ -77,12 +80,14 @@ PHP Composer (latest version always best)
 4. Run PHP Composer insude the Fussball directory to download all dependacies 
 5. Run the MySQL file [/sql/fsbl.sql] to install the database, users, teams, etc.
 6. Create a file manually called [database_connection.php] and add your Database login details. See example file below. This step is manual as it ensures the file is not tracked by the repo and overwritten if you need to re-pull fro the repo. This needs to be stored in [/office-fussball/application/config/database_connection.php]
-7. Open the webroot and you should see the homepage with a login. YTou can log in with the below default admin user
+7. Open the webroot and you should see the homepage with a login. You can log in with the below default admin user
   *Note: by default Activee Directory (LDAP) is turned off, you can turn on via the admin panel)*
-   *  Username: demouser
-8. To being playing, first go to admin panel, remove all seasons. 
-9. Then create new users, then create team names for the user, then create new season and off you go.
-
+8. Default Admin name is: demouser
+9. If you want to turn [LDAP] on, you can do this via the admin page. You will need to enter your offices active directory settings in the file
+[/application/libs/ldap.php]. Typical default settings are here...
+  	Line 70: ```protected $_account_suffix = "[XXXXXX]";``` 
+    Line 77: ```protected $_base_dn = "DC=[XXXXXX],DC=[XXXXXX]";```
+    Line 85: ```protected $_domain_controllers = array ("[XXXXXX]");```
 
 **EXAMPLE database_connection.php** 
 You must create a separate file manually called [database_connection.php] as this file will be checked but never overwriiten. Example code below.
@@ -108,10 +113,19 @@ $dbpass = 'dbpass789';
 $dbcharset = 'utf8';
 ```
 
+## For the Fussball Admins
+1.  Firstly login using the default admin username "demouser"
+2.  Admin > Remove all seasons. 
+3.  Admin > Create Users
+4.  Admin > Create Teams
+5.  Admin > Create Season
+
+
 
 ****************************************************************
 *********************** 4. Screenshots *************************
 ****************************************************************
+# Screenshots
 
 League Tables
 
