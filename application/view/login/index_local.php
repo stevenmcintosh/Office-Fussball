@@ -16,8 +16,7 @@
 <?php /* REMOVE THIS FROM PRODUCTION **/ ?>
 <div class="alert alert-info" role="alert">
   <h4 class="alert-heading">Demo Mode</h4>
-  <p>This is a demo mode of FusStars and therefore only has limited functionality.</p>
-  <p>The demo site is reset once a day.</p>
+  <p>This is a demo mode of FusStars and therefore only has limited functionality. The demo site is reset once a day.</p>
   <hr>
   <p class="mb-0">User: demouser</p>
   <hr>
