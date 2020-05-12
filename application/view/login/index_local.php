@@ -28,7 +28,7 @@
       <li>Add new teams</li>
       <li>Create new seasons</li>
   </ul>
-</div>
+</div> 
 <?php /* END OF REMOVE THIS FROM PRODUCTION **/ ?>
 
 
