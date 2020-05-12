@@ -13,6 +13,23 @@
 </head>
 <body>
 
+<!-- DEMO NOTICE -->
+<div class="alert alert-info" role="alert">
+  <h4 class="alert-heading">Demo Mode</h4>
+  <p>This is a demo mode of FusStars and therefore only has limited functionality.</p>
+  <p>The demo site is reset once a day.</p>
+  <hr>
+  <p class="mb-0">User: demouser</p>
+  <hr>
+  <p class="mb-0">Things to try (via admin area):</p>
+  <ul>
+      <li>Add new results</li>
+      <li>Create new divisions</li>
+      <li>Add new teams</li>
+      <li>Create new seasons</li>
+  </ul>
+</div>
+<!-- END DEMO NOTICE -->
 <div class="bodyContainer container">
     <div class="loginArea">
         <div class="row">
