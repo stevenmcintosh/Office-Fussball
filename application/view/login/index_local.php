@@ -13,7 +13,7 @@
 </head>
 <body>
 
-<!-- DEMO NOTICE -->
+<?php /* REMOVE THIS FROM PRODUCTION **/ ?>
 <div class="alert alert-info" role="alert">
   <h4 class="alert-heading">Demo Mode</h4>
   <p>This is a demo mode of FusStars and therefore only has limited functionality.</p>
@@ -29,7 +29,9 @@
       <li>Create new seasons</li>
   </ul>
 </div>
-<!-- END DEMO NOTICE -->
+<?php /* END OF REMOVE THIS FROM PRODUCTION **/ ?>
+
+
 <div class="bodyContainer container">
     <div class="loginArea">
         <div class="row">
