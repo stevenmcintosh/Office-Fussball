@@ -50,14 +50,17 @@ Admin Pages
 # 3. Instructions
 ## For the IT Peeps
 
-Tested with and required for install:
-PHP Version 7.3.9
-MySQL Server version: 5.7.26
-PHP Composer (latest version always best)
+You will need to install:
+- PHP Version >=7.3.9
+- MySQL Server version: 5.7.26
+- PHP Composer (latest version always best)
+- GIT (optional)
 
+Steps:
 1. Clone the Repo
-2. Place the "application" and "public" folders into your web root
-3. Add the .htaccess file into your web root too.
+2. Delete the demoMode directory - you dont need it
+3. Place the "application" and "public" folders into your web root
+4. Add the .htaccess file into your web root too.
    
    *Note: If your not using the webroot, then make sure to change the redirect url in your .htaccess files located at:*
    * *[webroot]/.htaccces*
@@ -67,10 +70,10 @@ PHP Composer (latest version always best)
    ```RewriteRule ^(.*) /public/$1 [L]``` 
    Becomes
    ```RewriteRule ^(.*) /fussball/public/$1 [L]```
-4. Run PHP Composer insude the Fussball directory to download all dependacies 
-5. Run the MySQL file [/sql/fsbl.sql] to install the database, users, teams, etc.
-6. Create a file manually called [database_connection.php] and add your Database login details. See example file below. This step is manual as it ensures the file is not tracked by the repo and overwritten if you need to re-pull fro the repo. This needs to be stored in [/office-fussball/application/config/database_connection.php]
-7. Open the webroot and you should see the homepage with a login. You can log in with the below default admin user
+5. Run PHP Composer inside the Fussball directory to download all dependacies. The command your looking for is [composer update]
+6. Run the MySQL file [/sql/fsbl.sql] to install the database, users, teams, etc.
+7. Create a file manually called [database_connection.php] and add your Database login details. See example file below. This step is manual as it ensures the file is not tracked by the repo and overwritten if you need to re-pull fro the repo. This needs to be stored in [/office-fussball/application/config/database_connection.php]
+8. Open the webroot and you should see the homepage with a login. You can log in with the below default admin user
   *Note: by default Activee Directory (LDAP) is turned off, you can turn on via the admin panel)*
 8. Default Admin name is: demouser
 9. If you want to turn [LDAP] on, you can do this via the admin page. You will need to enter your offices active directory settings in the file
